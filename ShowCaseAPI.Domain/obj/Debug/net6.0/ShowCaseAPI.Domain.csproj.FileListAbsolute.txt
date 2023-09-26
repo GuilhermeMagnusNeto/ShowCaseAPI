@@ -1,0 +1,12 @@
+D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.Domain\bin\Debug\net6.0\ShowCaseAPI.Domain.deps.json
+D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.Domain\bin\Debug\net6.0\ShowCaseAPI.Domain.dll
+D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.Domain\bin\Debug\net6.0\ShowCaseAPI.Domain.pdb
+D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.Domain\obj\Debug\net6.0\ShowCaseAPI.Domain.csproj.AssemblyReference.cache
+D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.Domain\obj\Debug\net6.0\ShowCaseAPI.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.Domain\obj\Debug\net6.0\ShowCaseAPI.Domain.AssemblyInfoInputs.cache
+D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.Domain\obj\Debug\net6.0\ShowCaseAPI.Domain.AssemblyInfo.cs
+D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.Domain\obj\Debug\net6.0\ShowCaseAPI.Domain.csproj.CoreCompileInputs.cache
+D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.Domain\obj\Debug\net6.0\ShowCaseAPI.Domain.dll
+D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.Domain\obj\Debug\net6.0\refint\ShowCaseAPI.Domain.dll
+D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.Domain\obj\Debug\net6.0\ShowCaseAPI.Domain.pdb
+D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.Domain\obj\Debug\net6.0\ref\ShowCaseAPI.Domain.dll
