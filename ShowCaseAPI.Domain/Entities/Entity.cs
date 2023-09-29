@@ -22,6 +22,10 @@ namespace ShowCaseAPI.Domain.Entities
         [Column("DELETED")]
         public bool Deleted { get; set; }
 
+        //TODO: ChangedByUserId in all tables
+        //[Column("CHANGED_BY_USER_ID")]
+        //public Guid ChangedByUserId { get; set; }
+
         public Entity()
         {
             Id = Guid.NewGuid();

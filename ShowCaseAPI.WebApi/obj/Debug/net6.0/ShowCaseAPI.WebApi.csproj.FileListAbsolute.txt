@@ -5,6 +5,8 @@ D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.WebApi\bin\Debug\net6.0\ShowCase
 D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.WebApi\bin\Debug\net6.0\ShowCaseAPI.WebApi.runtimeconfig.json
 D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.WebApi\bin\Debug\net6.0\ShowCaseAPI.WebApi.dll
 D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.WebApi\bin\Debug\net6.0\ShowCaseAPI.WebApi.pdb
+D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.WebApi\bin\Debug\net6.0\AWSSDK.Core.dll
+D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.WebApi\bin\Debug\net6.0\AWSSDK.RDS.dll
 D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.WebApi\bin\Debug\net6.0\Azure.Core.dll
 D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.WebApi\bin\Debug\net6.0\Azure.Identity.dll
 D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.WebApi\bin\Debug\net6.0\Humanizer.dll
@@ -37,7 +39,9 @@ D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.WebApi\bin\Debug\net6.0\Microsof
 D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.WebApi\bin\Debug\net6.0\Microsoft.SqlServer.Server.dll
 D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.WebApi\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
 D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.WebApi\bin\Debug\net6.0\Mono.TextTemplating.dll
+D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.WebApi\bin\Debug\net6.0\MySqlConnector.dll
 D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.WebApi\bin\Debug\net6.0\Newtonsoft.Json.dll
+D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.WebApi\bin\Debug\net6.0\Pomelo.EntityFrameworkCore.MySql.dll
 D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.WebApi\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
 D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.WebApi\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.WebApi\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
@@ -90,7 +94,3 @@ D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.WebApi\obj\Debug\net6.0\refint\S
 D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.WebApi\obj\Debug\net6.0\ShowCaseAPI.WebApi.pdb
 D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.WebApi\obj\Debug\net6.0\ShowCaseAPI.WebApi.genruntimeconfig.cache
 D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.WebApi\obj\Debug\net6.0\ref\ShowCaseAPI.WebApi.dll
-D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.WebApi\bin\Debug\net6.0\MySqlConnector.dll
-D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.WebApi\bin\Debug\net6.0\Pomelo.EntityFrameworkCore.MySql.dll
-D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.WebApi\bin\Debug\net6.0\AWSSDK.Core.dll
-D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.WebApi\bin\Debug\net6.0\AWSSDK.RDS.dll

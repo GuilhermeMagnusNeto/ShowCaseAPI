@@ -10,32 +10,28 @@ using System.Threading.Tasks;
 
 namespace ShowCaseAPI.Domain.Entities
 {
-    [Table(name: "showcases")]
-    public class Showcase : Entity
+    [Table(name: "store_products")]
+    public class StoreProduct : Entity
     {
-        [Column("EXCLUSIVE_URL")]
-        public string ExclusiveURL { get; set; }
-
-        [Column("NAME")]
-        public string Name { get; set; }
-
         [Column("STORE_ID")]
         public string StoreId { get; set; }
         public virtual Store Store { get; set; }
+
+        [Column("PRODUCT_ID")]
+        public string ProductId { get; set; }
+        public virtual Product Product { get; set; }
     }
 
-    public static class ShowcaseDbBuilder
+    public static class StoreProductDbBuilder
     {
-        public static EntityTypeBuilder<TEntity> ConfigureUnique<TEntity>(this EntityTypeBuilder<TEntity> self, ModelBuilder modelBuilder) where TEntity : Showcase
+        public static EntityTypeBuilder<TEntity> ConfigureUnique<TEntity>(this EntityTypeBuilder<TEntity> self, ModelBuilder modelBuilder) where TEntity : StoreProduct
         {
             self.HasKey(x => x.Id);
             self.Property(x => x.Id).IsRequired();
             self.Property(x => x.Deleted).HasDefaultValue(false);
 
-            self.HasIndex(x => x.ExclusiveURL).IsUnique();
-            self.Property(x => x.ExclusiveURL).IsRequired();
             self.Property(x => x.StoreId).IsRequired();
-            self.Property(x => x.Name).IsRequired();
+            self.Property(x => x.ProductId).IsRequired();
 
             return self;
         }
