@@ -13,3 +13,18 @@ D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.Repositories\obj\Debug\net6.0\Sh
 D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.Repositories\obj\Debug\net6.0\refint\ShowCaseAPI.Repositories.dll
 D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.Repositories\obj\Debug\net6.0\ShowCaseAPI.Repositories.pdb
 D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.Repositories\obj\Debug\net6.0\ref\ShowCaseAPI.Repositories.dll
+C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.Repositories\bin\Debug\net6.0\ShowCaseAPI.Repositories.deps.json
+C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.Repositories\bin\Debug\net6.0\ShowCaseAPI.Repositories.dll
+C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.Repositories\bin\Debug\net6.0\ShowCaseAPI.Repositories.pdb
+C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.Repositories\bin\Debug\net6.0\ShowCaseAPI.Domain.dll
+C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.Repositories\bin\Debug\net6.0\ShowCaseAPI.Domain.pdb
+C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.Repositories\obj\Debug\net6.0\ShowCaseAPI.Repositories.csproj.AssemblyReference.cache
+C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.Repositories\obj\Debug\net6.0\ShowCaseAPI.Repositories.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.Repositories\obj\Debug\net6.0\ShowCaseAPI.Repositories.AssemblyInfoInputs.cache
+C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.Repositories\obj\Debug\net6.0\ShowCaseAPI.Repositories.AssemblyInfo.cs
+C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.Repositories\obj\Debug\net6.0\ShowCaseAPI.Repositories.csproj.CoreCompileInputs.cache
+C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.Repositories\obj\Debug\net6.0\ShowCaseAPI.Repositories.csproj.CopyComplete
+C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.Repositories\obj\Debug\net6.0\ShowCaseAPI.Repositories.dll
+C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.Repositories\obj\Debug\net6.0\refint\ShowCaseAPI.Repositories.dll
+C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.Repositories\obj\Debug\net6.0\ShowCaseAPI.Repositories.pdb
+C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.Repositories\obj\Debug\net6.0\ref\ShowCaseAPI.Repositories.dll

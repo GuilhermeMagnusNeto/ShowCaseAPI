@@ -2,35 +2,6 @@
   "version": 3,
   "targets": {
     "net6.0": {
-      "AWSSDK.Core/3.7.202.14": {
-        "type": "package",
-        "compile": {
-          "lib/netcoreapp3.1/AWSSDK.Core.dll": {
-            "related": ".pdb;.xml"
-          }
-        },
-        "runtime": {
-          "lib/netcoreapp3.1/AWSSDK.Core.dll": {
-            "related": ".pdb;.xml"
-          }
-        }
-      },
-      "AWSSDK.RDS/3.7.208.12": {
-        "type": "package",
-        "dependencies": {
-          "AWSSDK.Core": "[3.7.202.14, 4.0.0)"
-        },
-        "compile": {
-          "lib/netcoreapp3.1/AWSSDK.RDS.dll": {
-            "related": ".pdb;.xml"
-          }
-        },
-        "runtime": {
-          "lib/netcoreapp3.1/AWSSDK.RDS.dll": {
-            "related": ".pdb;.xml"
-          }
-        }
-      },
       "Azure.Core/1.25.0": {
         "type": "package",
         "dependencies": {
@@ -694,19 +665,6 @@
           "lib/netstandard2.0/Mono.TextTemplating.dll": {}
         }
       },
-      "MySqlConnector/2.2.5": {
-        "type": "package",
-        "compile": {
-          "lib/net6.0/MySqlConnector.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net6.0/MySqlConnector.dll": {
-            "related": ".xml"
-          }
-        }
-      },
       "Newtonsoft.Json/13.0.3": {
         "type": "package",
         "compile": {
@@ -720,19 +678,38 @@
           }
         }
       },
-      "Pomelo.EntityFrameworkCore.MySql/7.0.0": {
+      "Npgsql/7.0.6": {
         "type": "package",
         "dependencies": {
-          "Microsoft.EntityFrameworkCore.Relational": "7.0.2",
-          "MySqlConnector": "2.2.5"
+          "Microsoft.Extensions.Logging.Abstractions": "6.0.0",
+          "System.Runtime.CompilerServices.Unsafe": "6.0.0"
         },
         "compile": {
-          "lib/net6.0/Pomelo.EntityFrameworkCore.MySql.dll": {
+          "lib/net6.0/Npgsql.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net6.0/Pomelo.EntityFrameworkCore.MySql.dll": {
+          "lib/net6.0/Npgsql.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Npgsql.EntityFrameworkCore.PostgreSQL/7.0.11": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "[7.0.11, 8.0.0)",
+          "Microsoft.EntityFrameworkCore.Abstractions": "[7.0.11, 8.0.0)",
+          "Microsoft.EntityFrameworkCore.Relational": "[7.0.11, 8.0.0)",
+          "Npgsql": "7.0.6"
+        },
+        "compile": {
+          "lib/net6.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll": {
             "related": ".xml"
           }
         }
@@ -1238,11 +1215,9 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "AWSSDK.Core": "3.7.202.14",
-          "AWSSDK.RDS": "3.7.208.12",
           "Microsoft.EntityFrameworkCore": "7.0.11",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.11",
-          "Pomelo.EntityFrameworkCore.MySql": "7.0.0",
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "7.0.11",
           "ShowCaseAPI.Domain": "1.0.0"
         },
         "compile": {
@@ -1250,19 +1225,6 @@
         },
         "runtime": {
           "bin/placeholder/ShowCaseAPI.Identity.dll": {}
-        }
-      },
-      "ShowCaseAPI.IoC/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "ShowCaseAPI.Repositories": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/ShowCaseAPI.IoC.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/ShowCaseAPI.IoC.dll": {}
         }
       },
       "ShowCaseAPI.Repositories/1.0.0": {
@@ -1282,61 +1244,6 @@
     }
   },
   "libraries": {
-    "AWSSDK.Core/3.7.202.14": {
-      "sha512": "bo5vFW7rB8ABeY6RMK/kOjCOJOHpGO0sHpRILx3HTpvh3fvuWYnI/aHJMpnU/SCvAidyTgrHJcvAHOVGWwPbCA==",
-      "type": "package",
-      "path": "awssdk.core/3.7.202.14",
-      "hasTools": true,
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "awssdk.core.3.7.202.14.nupkg.sha512",
-        "awssdk.core.nuspec",
-        "images/AWSLogo.png",
-        "lib/net35/AWSSDK.Core.dll",
-        "lib/net35/AWSSDK.Core.pdb",
-        "lib/net35/AWSSDK.Core.xml",
-        "lib/net45/AWSSDK.Core.dll",
-        "lib/net45/AWSSDK.Core.pdb",
-        "lib/net45/AWSSDK.Core.xml",
-        "lib/netcoreapp3.1/AWSSDK.Core.dll",
-        "lib/netcoreapp3.1/AWSSDK.Core.pdb",
-        "lib/netcoreapp3.1/AWSSDK.Core.xml",
-        "lib/netstandard2.0/AWSSDK.Core.dll",
-        "lib/netstandard2.0/AWSSDK.Core.pdb",
-        "lib/netstandard2.0/AWSSDK.Core.xml",
-        "tools/account-management.ps1"
-      ]
-    },
-    "AWSSDK.RDS/3.7.208.12": {
-      "sha512": "ytw65BluX+hJ41v3a9nFXiNcZNhYlKpudjPFnPSrP09uyT5JXY1ps0e9QNYdN7Z8RQSCrq1bpnOmNGp2EtqkEQ==",
-      "type": "package",
-      "path": "awssdk.rds/3.7.208.12",
-      "hasTools": true,
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "analyzers/dotnet/cs/AWSSDK.RDS.CodeAnalysis.dll",
-        "analyzers/dotnet/cs/SharedAnalysisCode.dll",
-        "awssdk.rds.3.7.208.12.nupkg.sha512",
-        "awssdk.rds.nuspec",
-        "images/AWSLogo.png",
-        "lib/net35/AWSSDK.RDS.dll",
-        "lib/net35/AWSSDK.RDS.pdb",
-        "lib/net35/AWSSDK.RDS.xml",
-        "lib/net45/AWSSDK.RDS.dll",
-        "lib/net45/AWSSDK.RDS.pdb",
-        "lib/net45/AWSSDK.RDS.xml",
-        "lib/netcoreapp3.1/AWSSDK.RDS.dll",
-        "lib/netcoreapp3.1/AWSSDK.RDS.pdb",
-        "lib/netcoreapp3.1/AWSSDK.RDS.xml",
-        "lib/netstandard2.0/AWSSDK.RDS.dll",
-        "lib/netstandard2.0/AWSSDK.RDS.pdb",
-        "lib/netstandard2.0/AWSSDK.RDS.xml",
-        "tools/install.ps1",
-        "tools/uninstall.ps1"
-      ]
-    },
     "Azure.Core/1.25.0": {
       "sha512": "X8Dd4sAggS84KScWIjEbFAdt2U1KDolQopTPoHVubG2y3CM54f9l6asVrP5Uy384NWXjsspPYaJgz5xHc+KvTA==",
       "type": "package",
@@ -2309,33 +2216,6 @@
         "mono.texttemplating.nuspec"
       ]
     },
-    "MySqlConnector/2.2.5": {
-      "sha512": "6sinY78RvryhHwpup3awdjYO7d5hhWahb5p/1VDODJhSxJggV/sBbYuKK5IQF9TuzXABiddqUbmRfM884tqA3Q==",
-      "type": "package",
-      "path": "mysqlconnector/2.2.5",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "README.md",
-        "lib/net461/MySqlConnector.dll",
-        "lib/net461/MySqlConnector.xml",
-        "lib/net471/MySqlConnector.dll",
-        "lib/net471/MySqlConnector.xml",
-        "lib/net6.0/MySqlConnector.dll",
-        "lib/net6.0/MySqlConnector.xml",
-        "lib/net7.0/MySqlConnector.dll",
-        "lib/net7.0/MySqlConnector.xml",
-        "lib/netcoreapp3.1/MySqlConnector.dll",
-        "lib/netcoreapp3.1/MySqlConnector.xml",
-        "lib/netstandard2.0/MySqlConnector.dll",
-        "lib/netstandard2.0/MySqlConnector.xml",
-        "lib/netstandard2.1/MySqlConnector.dll",
-        "lib/netstandard2.1/MySqlConnector.xml",
-        "logo.png",
-        "mysqlconnector.2.2.5.nupkg.sha512",
-        "mysqlconnector.nuspec"
-      ]
-    },
     "Newtonsoft.Json/13.0.3": {
       "sha512": "HrC5BXdl00IP9zeV+0Z848QWPAoCr9P3bDEZguI+gkLcBKAOxix/tLEAAHC+UvDNPv4a2d18lOReHMOagPa+zQ==",
       "type": "package",
@@ -2366,21 +2246,46 @@
         "packageIcon.png"
       ]
     },
-    "Pomelo.EntityFrameworkCore.MySql/7.0.0": {
-      "sha512": "Qk5WB/skSZet5Yrz6AN2ywjZaB1pxfAmvQ+5I4khTkLwwIamI4QJoH2NphCWLFQL+2ar8HvsNCTmwYk0qhqL0w==",
+    "Npgsql/7.0.6": {
+      "sha512": "TAqvwRnm3NJ0QvN7cvu6geJkbI0XPzGVRElVY5hF4gsgA+BnE12x6GM1TLhdeq+7ZKvvo3BD8jXKnXmr3tvdEw==",
       "type": "package",
-      "path": "pomelo.entityframeworkcore.mysql/7.0.0",
+      "path": "npgsql/7.0.6",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "README.md",
-        "icon.png",
-        "lib/net6.0/Pomelo.EntityFrameworkCore.MySql.dll",
-        "lib/net6.0/Pomelo.EntityFrameworkCore.MySql.xml",
-        "lib/net7.0/Pomelo.EntityFrameworkCore.MySql.dll",
-        "lib/net7.0/Pomelo.EntityFrameworkCore.MySql.xml",
-        "pomelo.entityframeworkcore.mysql.7.0.0.nupkg.sha512",
-        "pomelo.entityframeworkcore.mysql.nuspec"
+        "lib/net5.0/Npgsql.dll",
+        "lib/net5.0/Npgsql.xml",
+        "lib/net6.0/Npgsql.dll",
+        "lib/net6.0/Npgsql.xml",
+        "lib/net7.0/Npgsql.dll",
+        "lib/net7.0/Npgsql.xml",
+        "lib/netcoreapp3.1/Npgsql.dll",
+        "lib/netcoreapp3.1/Npgsql.xml",
+        "lib/netstandard2.0/Npgsql.dll",
+        "lib/netstandard2.0/Npgsql.xml",
+        "lib/netstandard2.1/Npgsql.dll",
+        "lib/netstandard2.1/Npgsql.xml",
+        "npgsql.7.0.6.nupkg.sha512",
+        "npgsql.nuspec",
+        "postgresql.png"
+      ]
+    },
+    "Npgsql.EntityFrameworkCore.PostgreSQL/7.0.11": {
+      "sha512": "cHEgEz0ldXc9wVANs8sJqC+3eilqefrkasCBgaVT0tyj8tb1p3/pwy2ngjboNkDG3M0z+xJsJ4jC5p8wySAM3w==",
+      "type": "package",
+      "path": "npgsql.entityframeworkcore.postgresql/7.0.11",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "lib/net6.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll",
+        "lib/net6.0/Npgsql.EntityFrameworkCore.PostgreSQL.xml",
+        "lib/net7.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll",
+        "lib/net7.0/Npgsql.EntityFrameworkCore.PostgreSQL.xml",
+        "npgsql.entityframeworkcore.postgresql.7.0.11.nupkg.sha512",
+        "npgsql.entityframeworkcore.postgresql.nuspec",
+        "postgresql.png"
       ]
     },
     "Swashbuckle.AspNetCore/6.2.3": {
@@ -3363,11 +3268,6 @@
       "path": "../ShowCaseAPI.Identity/ShowCaseAPI.Identity.csproj",
       "msbuildProject": "../ShowCaseAPI.Identity/ShowCaseAPI.Identity.csproj"
     },
-    "ShowCaseAPI.IoC/1.0.0": {
-      "type": "project",
-      "path": "../ShowCaseAPI.IoC/ShowCaseAPI.IoC.csproj",
-      "msbuildProject": "../ShowCaseAPI.IoC/ShowCaseAPI.IoC.csproj"
-    },
     "ShowCaseAPI.Repositories/1.0.0": {
       "type": "project",
       "path": "../ShowCaseAPI.Repositories/ShowCaseAPI.Repositories.csproj",
@@ -3376,40 +3276,34 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "AWSSDK.Core >= 3.7.202.14",
-      "AWSSDK.RDS >= 3.7.208.12",
       "Microsoft.EntityFrameworkCore >= 7.0.11",
       "Microsoft.EntityFrameworkCore.Design >= 7.0.11",
       "Microsoft.EntityFrameworkCore.SqlServer >= 7.0.11",
       "Microsoft.EntityFrameworkCore.Tools >= 7.0.11",
       "Newtonsoft.Json >= 13.0.3",
-      "Pomelo.EntityFrameworkCore.MySql >= 7.0.0",
       "ShowCaseAPI.Identity >= 1.0.0",
-      "ShowCaseAPI.IoC >= 1.0.0",
       "ShowCaseAPI.Repositories >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.2.3"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\NOTE\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\adria\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Programacao\\Projetos\\ShowCaseAPI\\ShowCaseAPI.WebApi\\ShowCaseAPI.WebApi.csproj",
+      "projectUniqueName": "C:\\Users\\adria\\Desktop\\Arquivos note antigo\\Documents\\Documentos\\Adriana\\ULBRA\\2023_2\\Clone_ShowCaseAPI\\ShowCaseAPI\\ShowCaseAPI.WebApi\\ShowCaseAPI.WebApi.csproj",
       "projectName": "ShowCaseAPI.WebApi",
-      "projectPath": "D:\\Programacao\\Projetos\\ShowCaseAPI\\ShowCaseAPI.WebApi\\ShowCaseAPI.WebApi.csproj",
-      "packagesPath": "C:\\Users\\NOTE\\.nuget\\packages\\",
-      "outputPath": "D:\\Programacao\\Projetos\\ShowCaseAPI\\ShowCaseAPI.WebApi\\obj\\",
+      "projectPath": "C:\\Users\\adria\\Desktop\\Arquivos note antigo\\Documents\\Documentos\\Adriana\\ULBRA\\2023_2\\Clone_ShowCaseAPI\\ShowCaseAPI\\ShowCaseAPI.WebApi\\ShowCaseAPI.WebApi.csproj",
+      "packagesPath": "C:\\Users\\adria\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\adria\\Desktop\\Arquivos note antigo\\Documents\\Documentos\\Adriana\\ULBRA\\2023_2\\Clone_ShowCaseAPI\\ShowCaseAPI\\ShowCaseAPI.WebApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\NOTE\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\adria\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -3418,20 +3312,19 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
+        "C:\\Program Files\\dotnet\\sdk\\7.0.302\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\Programacao\\Projetos\\ShowCaseAPI\\ShowCaseAPI.Identity\\ShowCaseAPI.Identity.csproj": {
-              "projectPath": "D:\\Programacao\\Projetos\\ShowCaseAPI\\ShowCaseAPI.Identity\\ShowCaseAPI.Identity.csproj"
+            "C:\\Users\\adria\\Desktop\\Arquivos note antigo\\Documents\\Documentos\\Adriana\\ULBRA\\2023_2\\Clone_ShowCaseAPI\\ShowCaseAPI\\ShowCaseAPI.Identity\\ShowCaseAPI.Identity.csproj": {
+              "projectPath": "C:\\Users\\adria\\Desktop\\Arquivos note antigo\\Documents\\Documentos\\Adriana\\ULBRA\\2023_2\\Clone_ShowCaseAPI\\ShowCaseAPI\\ShowCaseAPI.Identity\\ShowCaseAPI.Identity.csproj"
             },
-            "D:\\Programacao\\Projetos\\ShowCaseAPI\\ShowCaseAPI.IoC\\ShowCaseAPI.IoC.csproj": {
-              "projectPath": "D:\\Programacao\\Projetos\\ShowCaseAPI\\ShowCaseAPI.IoC\\ShowCaseAPI.IoC.csproj"
-            },
-            "D:\\Programacao\\Projetos\\ShowCaseAPI\\ShowCaseAPI.Repositories\\ShowCaseAPI.Repositories.csproj": {
-              "projectPath": "D:\\Programacao\\Projetos\\ShowCaseAPI\\ShowCaseAPI.Repositories\\ShowCaseAPI.Repositories.csproj"
+            "C:\\Users\\adria\\Desktop\\Arquivos note antigo\\Documents\\Documentos\\Adriana\\ULBRA\\2023_2\\Clone_ShowCaseAPI\\ShowCaseAPI\\ShowCaseAPI.Repositories\\ShowCaseAPI.Repositories.csproj": {
+              "projectPath": "C:\\Users\\adria\\Desktop\\Arquivos note antigo\\Documents\\Documentos\\Adriana\\ULBRA\\2023_2\\Clone_ShowCaseAPI\\ShowCaseAPI\\ShowCaseAPI.Repositories\\ShowCaseAPI.Repositories.csproj"
             }
           }
         }
@@ -3446,14 +3339,6 @@
       "net6.0": {
         "targetAlias": "net6.0",
         "dependencies": {
-          "AWSSDK.Core": {
-            "target": "Package",
-            "version": "[3.7.202.14, )"
-          },
-          "AWSSDK.RDS": {
-            "target": "Package",
-            "version": "[3.7.208.12, )"
-          },
           "Microsoft.EntityFrameworkCore": {
             "target": "Package",
             "version": "[7.0.11, )"
@@ -3477,10 +3362,6 @@
           "Newtonsoft.Json": {
             "target": "Package",
             "version": "[13.0.3, )"
-          },
-          "Pomelo.EntityFrameworkCore.MySql": {
-            "target": "Package",
-            "version": "[7.0.0, )"
           },
           "Swashbuckle.AspNetCore": {
             "target": "Package",
@@ -3506,7 +3387,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
       }
     }
   }

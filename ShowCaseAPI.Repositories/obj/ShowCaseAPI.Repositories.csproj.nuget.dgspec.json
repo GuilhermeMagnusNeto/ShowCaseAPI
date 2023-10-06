@@ -1,24 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Programacao\\Projetos\\ShowCaseAPI\\ShowCaseAPI.Repositories\\ShowCaseAPI.Repositories.csproj": {}
+    "C:\\Users\\adria\\Desktop\\Arquivos note antigo\\Documents\\Documentos\\Adriana\\ULBRA\\2023_2\\Clone_ShowCaseAPI\\ShowCaseAPI\\ShowCaseAPI.Repositories\\ShowCaseAPI.Repositories.csproj": {}
   },
   "projects": {
-    "D:\\Programacao\\Projetos\\ShowCaseAPI\\ShowCaseAPI.Domain\\ShowCaseAPI.Domain.csproj": {
+    "C:\\Users\\adria\\Desktop\\Arquivos note antigo\\Documents\\Documentos\\Adriana\\ULBRA\\2023_2\\Clone_ShowCaseAPI\\ShowCaseAPI\\ShowCaseAPI.Domain\\ShowCaseAPI.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Programacao\\Projetos\\ShowCaseAPI\\ShowCaseAPI.Domain\\ShowCaseAPI.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\adria\\Desktop\\Arquivos note antigo\\Documents\\Documentos\\Adriana\\ULBRA\\2023_2\\Clone_ShowCaseAPI\\ShowCaseAPI\\ShowCaseAPI.Domain\\ShowCaseAPI.Domain.csproj",
         "projectName": "ShowCaseAPI.Domain",
-        "projectPath": "D:\\Programacao\\Projetos\\ShowCaseAPI\\ShowCaseAPI.Domain\\ShowCaseAPI.Domain.csproj",
-        "packagesPath": "C:\\Users\\NOTE\\.nuget\\packages\\",
-        "outputPath": "D:\\Programacao\\Projetos\\ShowCaseAPI\\ShowCaseAPI.Domain\\obj\\",
+        "projectPath": "C:\\Users\\adria\\Desktop\\Arquivos note antigo\\Documents\\Documentos\\Adriana\\ULBRA\\2023_2\\Clone_ShowCaseAPI\\ShowCaseAPI\\ShowCaseAPI.Domain\\ShowCaseAPI.Domain.csproj",
+        "packagesPath": "C:\\Users\\adria\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\adria\\Desktop\\Arquivos note antigo\\Documents\\Documentos\\Adriana\\ULBRA\\2023_2\\Clone_ShowCaseAPI\\ShowCaseAPI\\ShowCaseAPI.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\NOTE\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\adria\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -27,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -70,25 +70,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Programacao\\Projetos\\ShowCaseAPI\\ShowCaseAPI.Repositories\\ShowCaseAPI.Repositories.csproj": {
+    "C:\\Users\\adria\\Desktop\\Arquivos note antigo\\Documents\\Documentos\\Adriana\\ULBRA\\2023_2\\Clone_ShowCaseAPI\\ShowCaseAPI\\ShowCaseAPI.Repositories\\ShowCaseAPI.Repositories.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Programacao\\Projetos\\ShowCaseAPI\\ShowCaseAPI.Repositories\\ShowCaseAPI.Repositories.csproj",
+        "projectUniqueName": "C:\\Users\\adria\\Desktop\\Arquivos note antigo\\Documents\\Documentos\\Adriana\\ULBRA\\2023_2\\Clone_ShowCaseAPI\\ShowCaseAPI\\ShowCaseAPI.Repositories\\ShowCaseAPI.Repositories.csproj",
         "projectName": "ShowCaseAPI.Repositories",
-        "projectPath": "D:\\Programacao\\Projetos\\ShowCaseAPI\\ShowCaseAPI.Repositories\\ShowCaseAPI.Repositories.csproj",
-        "packagesPath": "C:\\Users\\NOTE\\.nuget\\packages\\",
-        "outputPath": "D:\\Programacao\\Projetos\\ShowCaseAPI\\ShowCaseAPI.Repositories\\obj\\",
+        "projectPath": "C:\\Users\\adria\\Desktop\\Arquivos note antigo\\Documents\\Documentos\\Adriana\\ULBRA\\2023_2\\Clone_ShowCaseAPI\\ShowCaseAPI\\ShowCaseAPI.Repositories\\ShowCaseAPI.Repositories.csproj",
+        "packagesPath": "C:\\Users\\adria\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\adria\\Desktop\\Arquivos note antigo\\Documents\\Documentos\\Adriana\\ULBRA\\2023_2\\Clone_ShowCaseAPI\\ShowCaseAPI\\ShowCaseAPI.Repositories\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\NOTE\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\adria\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -97,14 +96,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\Programacao\\Projetos\\ShowCaseAPI\\ShowCaseAPI.Domain\\ShowCaseAPI.Domain.csproj": {
-                "projectPath": "D:\\Programacao\\Projetos\\ShowCaseAPI\\ShowCaseAPI.Domain\\ShowCaseAPI.Domain.csproj"
+              "C:\\Users\\adria\\Desktop\\Arquivos note antigo\\Documents\\Documentos\\Adriana\\ULBRA\\2023_2\\Clone_ShowCaseAPI\\ShowCaseAPI\\ShowCaseAPI.Domain\\ShowCaseAPI.Domain.csproj": {
+                "projectPath": "C:\\Users\\adria\\Desktop\\Arquivos note antigo\\Documents\\Documentos\\Adriana\\ULBRA\\2023_2\\Clone_ShowCaseAPI\\ShowCaseAPI\\ShowCaseAPI.Domain\\ShowCaseAPI.Domain.csproj"
               }
             }
           }
@@ -140,7 +140,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }
