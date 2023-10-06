@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using ShowCaseAPI.Domain.Entities;
 using ShowCaseAPI.Domain.Entities.Base;
 using System;
 using System.Collections.Generic;
@@ -17,12 +18,10 @@ namespace ShowCaseAPI.Repositories.Base
             _dbContext = dbContext;
         }
 
-
-
-
         public int Delete(Guid id)
         {
             var entity = GetById(id);
+            entity.UpdatedAt = DateTime.UtcNow;
             entity.Deleted = true;
 
             Update(entity);
@@ -47,6 +46,7 @@ namespace ShowCaseAPI.Repositories.Base
 
         public int Update(T entity)
         {
+            entity.UpdatedAt = DateTime.UtcNow;
             _dbContext.Set<T>().Update(entity);
             return _dbContext.SaveChanges();
         }

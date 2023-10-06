@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using ShowCaseAPI.Infra.Context.CrossCutting.Identity.Data;
+using ShowCaseAPI.IoC;
 //using ShowCaseAPI.IoC;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,9 +13,8 @@ string connectionString = builder.Configuration.GetConnectionString("ShowCaseDB"
 // Configurar as opções do DbContext
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
-    // Use o MySQL como provedor de banco de dados
     options.UseNpgsql(connectionString);
-    options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
+    //options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
 });
 
 //NativeInjectorBootStrapper.RegisterServices(builder.Services);

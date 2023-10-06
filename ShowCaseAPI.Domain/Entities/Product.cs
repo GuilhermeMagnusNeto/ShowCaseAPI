@@ -18,14 +18,14 @@ namespace ShowCaseAPI.Domain.Entities
         public string Name { get; set; }
 
         [Column("VALUE")]
-        public double Value { get; set; }
+        public double? Value { get; set; }
 
         /// <summary> Stock Keeping Unit </summary>
         [Column("SKU")]
-        public string SKU { get; set; }
+        public string? SKU { get; set; }
 
         [Column("PRODUCT_PICTURE")]
-        public string ProductPicture { get; set; }
+        public string? ProductPicture { get; set; }
     }
 
     public static class ProductDbBuilder
