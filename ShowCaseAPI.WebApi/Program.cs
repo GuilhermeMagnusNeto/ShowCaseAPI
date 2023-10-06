@@ -4,10 +4,14 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Hosting;
 using MySqlConnector;
 using ShowCaseAPI.Infra.Context.CrossCutting.Identity.Data;
+//using ShowCaseAPI.IoC;
+using ShowCaseAPI.Repositories.Interface;
+using ShowCaseAPI.Repositories.Repository;
 using System.Data.Common;
 
 var builder = WebApplication.CreateBuilder(args);
 
+//---------------------------------------------------------TODO: ADRI VOLTAR PARA POSTGRESQL --------------------------------------------------------------
 // Obtenha as informações de conexão do appsettings.json
 string server = builder.Configuration.GetConnectionString("Server");
 string user = builder.Configuration.GetConnectionString("User");
@@ -27,6 +31,10 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
         mysqlOptions.EnableRetryOnFailure();
     });
 });
+//---------------------------------------------------------TODO: ADRI VOLTAR PARA POSTGRESQL --------------------------------------------------------------
+
+//NativeInjectorBootStrapper.RegisterServices(builder.Services);
+builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddControllers();
 

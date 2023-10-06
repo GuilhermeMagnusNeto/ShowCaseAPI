@@ -1251,6 +1251,20 @@
         "runtime": {
           "bin/placeholder/ShowCaseAPI.Identity.dll": {}
         }
+      },
+      "ShowCaseAPI.Repositories/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "7.0.11",
+          "ShowCaseAPI.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ShowCaseAPI.Repositories.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ShowCaseAPI.Repositories.dll": {}
+        }
       }
     }
   },
@@ -3335,6 +3349,11 @@
       "type": "project",
       "path": "../ShowCaseAPI.Identity/ShowCaseAPI.Identity.csproj",
       "msbuildProject": "../ShowCaseAPI.Identity/ShowCaseAPI.Identity.csproj"
+    },
+    "ShowCaseAPI.Repositories/1.0.0": {
+      "type": "project",
+      "path": "../ShowCaseAPI.Repositories/ShowCaseAPI.Repositories.csproj",
+      "msbuildProject": "../ShowCaseAPI.Repositories/ShowCaseAPI.Repositories.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -3348,6 +3367,7 @@
       "Newtonsoft.Json >= 13.0.3",
       "Pomelo.EntityFrameworkCore.MySql >= 7.0.0",
       "ShowCaseAPI.Identity >= 1.0.0",
+      "ShowCaseAPI.Repositories >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.2.3"
     ]
   },
@@ -3387,6 +3407,9 @@
           "projectReferences": {
             "D:\\Programacao\\Projetos\\ShowCaseAPI\\ShowCaseAPI.Identity\\ShowCaseAPI.Identity.csproj": {
               "projectPath": "D:\\Programacao\\Projetos\\ShowCaseAPI\\ShowCaseAPI.Identity\\ShowCaseAPI.Identity.csproj"
+            },
+            "D:\\Programacao\\Projetos\\ShowCaseAPI\\ShowCaseAPI.Repositories\\ShowCaseAPI.Repositories.csproj": {
+              "projectPath": "D:\\Programacao\\Projetos\\ShowCaseAPI\\ShowCaseAPI.Repositories\\ShowCaseAPI.Repositories.csproj"
             }
           }
         }

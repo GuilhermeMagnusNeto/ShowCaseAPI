@@ -25,11 +25,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\ShowCaseAPI.Identity\ShowCaseAPI.Identity.csproj" />
+    <ProjectReference Include="..\ShowCaseAPI.Repositories\ShowCaseAPI.Repositories.csproj" />
   </ItemGroup>
 
 </Project>
