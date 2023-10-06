@@ -10,3 +10,15 @@ D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.Domain\obj\Debug\net6.0\ShowCase
 D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.Domain\obj\Debug\net6.0\refint\ShowCaseAPI.Domain.dll
 D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.Domain\obj\Debug\net6.0\ShowCaseAPI.Domain.pdb
 D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.Domain\obj\Debug\net6.0\ref\ShowCaseAPI.Domain.dll
+C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.Domain\bin\Debug\net6.0\ShowCaseAPI.Domain.deps.json
+C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.Domain\bin\Debug\net6.0\ShowCaseAPI.Domain.dll
+C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.Domain\bin\Debug\net6.0\ShowCaseAPI.Domain.pdb
+C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.Domain\obj\Debug\net6.0\ShowCaseAPI.Domain.csproj.AssemblyReference.cache
+C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.Domain\obj\Debug\net6.0\ShowCaseAPI.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.Domain\obj\Debug\net6.0\ShowCaseAPI.Domain.AssemblyInfoInputs.cache
+C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.Domain\obj\Debug\net6.0\ShowCaseAPI.Domain.AssemblyInfo.cs
+C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.Domain\obj\Debug\net6.0\ShowCaseAPI.Domain.csproj.CoreCompileInputs.cache
+C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.Domain\obj\Debug\net6.0\ShowCaseAPI.Domain.dll
+C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.Domain\obj\Debug\net6.0\refint\ShowCaseAPI.Domain.dll
+C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.Domain\obj\Debug\net6.0\ShowCaseAPI.Domain.pdb
+C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.Domain\obj\Debug\net6.0\ref\ShowCaseAPI.Domain.dll

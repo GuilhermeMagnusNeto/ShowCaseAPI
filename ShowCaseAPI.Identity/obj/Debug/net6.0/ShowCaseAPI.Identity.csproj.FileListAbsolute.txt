@@ -15,3 +15,20 @@ D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.Identity\obj\Debug\net6.0\refint
 D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.Identity\obj\Debug\net6.0\ShowCaseAPI.Identity.pdb
 D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.Identity\obj\Debug\net6.0\ShowCaseAPI.Identity.genruntimeconfig.cache
 D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.Identity\obj\Debug\net6.0\ref\ShowCaseAPI.Identity.dll
+C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.Identity\bin\Debug\net6.0\ShowCaseAPI.Identity.deps.json
+C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.Identity\bin\Debug\net6.0\ShowCaseAPI.Identity.runtimeconfig.json
+C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.Identity\bin\Debug\net6.0\ShowCaseAPI.Identity.dll
+C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.Identity\bin\Debug\net6.0\ShowCaseAPI.Identity.pdb
+C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.Identity\bin\Debug\net6.0\ShowCaseAPI.Domain.dll
+C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.Identity\bin\Debug\net6.0\ShowCaseAPI.Domain.pdb
+C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.Identity\obj\Debug\net6.0\ShowCaseAPI.Identity.csproj.AssemblyReference.cache
+C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.Identity\obj\Debug\net6.0\ShowCaseAPI.Identity.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.Identity\obj\Debug\net6.0\ShowCaseAPI.Identity.AssemblyInfoInputs.cache
+C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.Identity\obj\Debug\net6.0\ShowCaseAPI.Identity.AssemblyInfo.cs
+C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.Identity\obj\Debug\net6.0\ShowCaseAPI.Identity.csproj.CoreCompileInputs.cache
+C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.Identity\obj\Debug\net6.0\ShowCaseAPI.Identity.csproj.CopyComplete
+C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.Identity\obj\Debug\net6.0\ShowCaseAPI.Identity.dll
+C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.Identity\obj\Debug\net6.0\refint\ShowCaseAPI.Identity.dll
+C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.Identity\obj\Debug\net6.0\ShowCaseAPI.Identity.pdb
+C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.Identity\obj\Debug\net6.0\ShowCaseAPI.Identity.genruntimeconfig.cache
+C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.Identity\obj\Debug\net6.0\ref\ShowCaseAPI.Identity.dll
