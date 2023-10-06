@@ -1252,6 +1252,19 @@
           "bin/placeholder/ShowCaseAPI.Identity.dll": {}
         }
       },
+      "ShowCaseAPI.IoC/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "ShowCaseAPI.Repositories": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ShowCaseAPI.IoC.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ShowCaseAPI.IoC.dll": {}
+        }
+      },
       "ShowCaseAPI.Repositories/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -3350,6 +3363,11 @@
       "path": "../ShowCaseAPI.Identity/ShowCaseAPI.Identity.csproj",
       "msbuildProject": "../ShowCaseAPI.Identity/ShowCaseAPI.Identity.csproj"
     },
+    "ShowCaseAPI.IoC/1.0.0": {
+      "type": "project",
+      "path": "../ShowCaseAPI.IoC/ShowCaseAPI.IoC.csproj",
+      "msbuildProject": "../ShowCaseAPI.IoC/ShowCaseAPI.IoC.csproj"
+    },
     "ShowCaseAPI.Repositories/1.0.0": {
       "type": "project",
       "path": "../ShowCaseAPI.Repositories/ShowCaseAPI.Repositories.csproj",
@@ -3367,6 +3385,7 @@
       "Newtonsoft.Json >= 13.0.3",
       "Pomelo.EntityFrameworkCore.MySql >= 7.0.0",
       "ShowCaseAPI.Identity >= 1.0.0",
+      "ShowCaseAPI.IoC >= 1.0.0",
       "ShowCaseAPI.Repositories >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.2.3"
     ]
@@ -3407,6 +3426,9 @@
           "projectReferences": {
             "D:\\Programacao\\Projetos\\ShowCaseAPI\\ShowCaseAPI.Identity\\ShowCaseAPI.Identity.csproj": {
               "projectPath": "D:\\Programacao\\Projetos\\ShowCaseAPI\\ShowCaseAPI.Identity\\ShowCaseAPI.Identity.csproj"
+            },
+            "D:\\Programacao\\Projetos\\ShowCaseAPI\\ShowCaseAPI.IoC\\ShowCaseAPI.IoC.csproj": {
+              "projectPath": "D:\\Programacao\\Projetos\\ShowCaseAPI\\ShowCaseAPI.IoC\\ShowCaseAPI.IoC.csproj"
             },
             "D:\\Programacao\\Projetos\\ShowCaseAPI\\ShowCaseAPI.Repositories\\ShowCaseAPI.Repositories.csproj": {
               "projectPath": "D:\\Programacao\\Projetos\\ShowCaseAPI\\ShowCaseAPI.Repositories\\ShowCaseAPI.Repositories.csproj"

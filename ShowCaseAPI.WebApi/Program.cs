@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Hosting;
 using MySqlConnector;
 using ShowCaseAPI.Infra.Context.CrossCutting.Identity.Data;
+using ShowCaseAPI.IoC;
 //using ShowCaseAPI.IoC;
 using ShowCaseAPI.Repositories.Interface;
 using ShowCaseAPI.Repositories.Repository;
@@ -25,15 +26,11 @@ string connectionString = $"Server={server};Port=3306;Database={database};User I
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
     // Use o MySQL como provedor de banco de dados
-    options.UseMySql(connectionString, new MySqlServerVersion(new Version(5, 7, 33)), mysqlOptions =>
-    {
-        // Configure outras opções específicas do MySQL, se necessário
-        mysqlOptions.EnableRetryOnFailure();
-    });
+    options.UseSqlServer(connectionString);
 });
 //---------------------------------------------------------TODO: ADRI VOLTAR PARA POSTGRESQL --------------------------------------------------------------
 
-//NativeInjectorBootStrapper.RegisterServices(builder.Services);
+NativeInjectorBootStrapper.RegisterServices(builder.Services);
 builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddControllers();

@@ -71,7 +71,11 @@ D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.WebApi\bin\Debug\net6.0\runtimes
 D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.WebApi\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.WebApi\bin\Debug\net6.0\ShowCaseAPI.Domain.dll
 D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.WebApi\bin\Debug\net6.0\ShowCaseAPI.Identity.dll
+D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.WebApi\bin\Debug\net6.0\ShowCaseAPI.IoC.dll
+D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.WebApi\bin\Debug\net6.0\ShowCaseAPI.Repositories.dll
 D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.WebApi\bin\Debug\net6.0\ShowCaseAPI.Identity.pdb
+D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.WebApi\bin\Debug\net6.0\ShowCaseAPI.IoC.pdb
+D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.WebApi\bin\Debug\net6.0\ShowCaseAPI.Repositories.pdb
 D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.WebApi\bin\Debug\net6.0\ShowCaseAPI.Domain.pdb
 D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.WebApi\obj\Debug\net6.0\ShowCaseAPI.WebApi.csproj.AssemblyReference.cache
 D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.WebApi\obj\Debug\net6.0\ShowCaseAPI.WebApi.GeneratedMSBuildEditorConfig.editorconfig
