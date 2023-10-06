@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "5AlOsWYu/d3jvf16NGtjAgOKMTFABxeTcmMNucpn+2s=",
+  "Source": "ShowCaseAPI.WebApi",
+  "BasePath": "_content/ShowCaseAPI.WebApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
