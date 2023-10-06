@@ -15,14 +15,14 @@ namespace ShowCaseAPI.Identity.Migrations
                 name: "products",
                 columns: table => new
                 {
-                    ID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    NAME = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    VALUE = table.Column<double>(type: "float", nullable: false),
-                    SKU = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    PRODUCT_PICTURE = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CREATED_AT = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UPDATED_AT = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DELETED = table.Column<bool>(type: "bit", nullable: false, defaultValue: false)
+                    ID = table.Column<Guid>(type: "uuid", nullable: false),
+                    NAME = table.Column<string>(type: "text", nullable: false),
+                    VALUE = table.Column<double>(type: "double precision", nullable: true),
+                    SKU = table.Column<string>(type: "text", nullable: true),
+                    PRODUCT_PICTURE = table.Column<string>(type: "text", nullable: true),
+                    CREATED_AT = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    UPDATED_AT = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    DELETED = table.Column<bool>(type: "boolean", nullable: false, defaultValue: false)
                 },
                 constraints: table =>
                 {
@@ -33,11 +33,11 @@ namespace ShowCaseAPI.Identity.Migrations
                 name: "templates",
                 columns: table => new
                 {
-                    ID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    NAME = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CREATED_AT = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UPDATED_AT = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DELETED = table.Column<bool>(type: "bit", nullable: false, defaultValue: false)
+                    ID = table.Column<Guid>(type: "uuid", nullable: false),
+                    NAME = table.Column<string>(type: "text", nullable: false),
+                    CREATED_AT = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    UPDATED_AT = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    DELETED = table.Column<bool>(type: "boolean", nullable: false, defaultValue: false)
                 },
                 constraints: table =>
                 {
@@ -48,14 +48,14 @@ namespace ShowCaseAPI.Identity.Migrations
                 name: "users",
                 columns: table => new
                 {
-                    ID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    NAME = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    PASSWORD_HASH = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    EMAIL = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    EMAIL_CONFIRMED = table.Column<bool>(type: "bit", nullable: false, defaultValue: false),
-                    CREATED_AT = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UPDATED_AT = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DELETED = table.Column<bool>(type: "bit", nullable: false, defaultValue: false)
+                    ID = table.Column<Guid>(type: "uuid", nullable: false),
+                    NAME = table.Column<string>(type: "text", nullable: false),
+                    PASSWORD_HASH = table.Column<string>(type: "text", nullable: false),
+                    EMAIL = table.Column<string>(type: "text", nullable: false),
+                    EMAIL_CONFIRMED = table.Column<bool>(type: "boolean", nullable: false, defaultValue: false),
+                    CREATED_AT = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    UPDATED_AT = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    DELETED = table.Column<bool>(type: "boolean", nullable: false, defaultValue: false)
                 },
                 constraints: table =>
                 {
@@ -66,14 +66,14 @@ namespace ShowCaseAPI.Identity.Migrations
                 name: "stores",
                 columns: table => new
                 {
-                    ID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    NAME = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    STORE_LOGO = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    USER_ID = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    UserId1 = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    CREATED_AT = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UPDATED_AT = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DELETED = table.Column<bool>(type: "bit", nullable: false, defaultValue: false)
+                    ID = table.Column<Guid>(type: "uuid", nullable: false),
+                    NAME = table.Column<string>(type: "text", nullable: false),
+                    STORE_LOGO = table.Column<string>(type: "text", nullable: false),
+                    USER_ID = table.Column<string>(type: "text", nullable: false),
+                    UserId1 = table.Column<Guid>(type: "uuid", nullable: false),
+                    CREATED_AT = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    UPDATED_AT = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    DELETED = table.Column<bool>(type: "boolean", nullable: false, defaultValue: false)
                 },
                 constraints: table =>
                 {
@@ -90,14 +90,14 @@ namespace ShowCaseAPI.Identity.Migrations
                 name: "showcases",
                 columns: table => new
                 {
-                    ID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    EXCLUSIVE_URL = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    NAME = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    STORE_ID = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    StoreId1 = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    CREATED_AT = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UPDATED_AT = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DELETED = table.Column<bool>(type: "bit", nullable: false, defaultValue: false)
+                    ID = table.Column<Guid>(type: "uuid", nullable: false),
+                    EXCLUSIVE_URL = table.Column<string>(type: "text", nullable: false),
+                    NAME = table.Column<string>(type: "text", nullable: false),
+                    STORE_ID = table.Column<string>(type: "text", nullable: false),
+                    StoreId1 = table.Column<Guid>(type: "uuid", nullable: false),
+                    CREATED_AT = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    UPDATED_AT = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    DELETED = table.Column<bool>(type: "boolean", nullable: false, defaultValue: false)
                 },
                 constraints: table =>
                 {
@@ -114,14 +114,14 @@ namespace ShowCaseAPI.Identity.Migrations
                 name: "store_products",
                 columns: table => new
                 {
-                    ID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    STORE_ID = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    StoreId1 = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    PRODUCT_ID = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ProductId1 = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    CREATED_AT = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UPDATED_AT = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DELETED = table.Column<bool>(type: "bit", nullable: false, defaultValue: false)
+                    ID = table.Column<Guid>(type: "uuid", nullable: false),
+                    STORE_ID = table.Column<string>(type: "text", nullable: false),
+                    StoreId1 = table.Column<Guid>(type: "uuid", nullable: false),
+                    PRODUCT_ID = table.Column<string>(type: "text", nullable: false),
+                    ProductId1 = table.Column<Guid>(type: "uuid", nullable: false),
+                    CREATED_AT = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    UPDATED_AT = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    DELETED = table.Column<bool>(type: "boolean", nullable: false, defaultValue: false)
                 },
                 constraints: table =>
                 {
@@ -144,17 +144,17 @@ namespace ShowCaseAPI.Identity.Migrations
                 name: "showcase_styles",
                 columns: table => new
                 {
-                    ID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    SHOWCASE_ID = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ShowcaseId1 = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    TEMPLATE_ID = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    TemplateId1 = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    BACKGROUND_COLOR_CODE = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    SHOW_PRODUCT_VALUE = table.Column<bool>(type: "bit", nullable: false, defaultValue: true),
-                    SHOW_STORE_LOGO = table.Column<bool>(type: "bit", nullable: false, defaultValue: true),
-                    CREATED_AT = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UPDATED_AT = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DELETED = table.Column<bool>(type: "bit", nullable: false, defaultValue: false)
+                    ID = table.Column<Guid>(type: "uuid", nullable: false),
+                    SHOWCASE_ID = table.Column<string>(type: "text", nullable: false),
+                    ShowcaseId1 = table.Column<Guid>(type: "uuid", nullable: false),
+                    TEMPLATE_ID = table.Column<string>(type: "text", nullable: false),
+                    TemplateId1 = table.Column<Guid>(type: "uuid", nullable: false),
+                    BACKGROUND_COLOR_CODE = table.Column<string>(type: "text", nullable: false),
+                    SHOW_PRODUCT_VALUE = table.Column<bool>(type: "boolean", nullable: false, defaultValue: true),
+                    SHOW_STORE_LOGO = table.Column<bool>(type: "boolean", nullable: false, defaultValue: true),
+                    CREATED_AT = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    UPDATED_AT = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    DELETED = table.Column<bool>(type: "boolean", nullable: false, defaultValue: false)
                 },
                 constraints: table =>
                 {

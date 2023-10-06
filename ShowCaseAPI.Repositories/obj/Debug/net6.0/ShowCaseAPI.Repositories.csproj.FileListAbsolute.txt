@@ -1,18 +1,3 @@
-D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.Repositories\bin\Debug\net6.0\ShowCaseAPI.Repositories.deps.json
-D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.Repositories\bin\Debug\net6.0\ShowCaseAPI.Repositories.dll
-D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.Repositories\bin\Debug\net6.0\ShowCaseAPI.Repositories.pdb
-D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.Repositories\bin\Debug\net6.0\ShowCaseAPI.Domain.dll
-D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.Repositories\bin\Debug\net6.0\ShowCaseAPI.Domain.pdb
-D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.Repositories\obj\Debug\net6.0\ShowCaseAPI.Repositories.csproj.AssemblyReference.cache
-D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.Repositories\obj\Debug\net6.0\ShowCaseAPI.Repositories.GeneratedMSBuildEditorConfig.editorconfig
-D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.Repositories\obj\Debug\net6.0\ShowCaseAPI.Repositories.AssemblyInfoInputs.cache
-D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.Repositories\obj\Debug\net6.0\ShowCaseAPI.Repositories.AssemblyInfo.cs
-D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.Repositories\obj\Debug\net6.0\ShowCaseAPI.Repositories.csproj.CoreCompileInputs.cache
-D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.Repositories\obj\Debug\net6.0\ShowCaseAPI.Repositories.csproj.CopyComplete
-D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.Repositories\obj\Debug\net6.0\ShowCaseAPI.Repositories.dll
-D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.Repositories\obj\Debug\net6.0\refint\ShowCaseAPI.Repositories.dll
-D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.Repositories\obj\Debug\net6.0\ShowCaseAPI.Repositories.pdb
-D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.Repositories\obj\Debug\net6.0\ref\ShowCaseAPI.Repositories.dll
 C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.Repositories\bin\Debug\net6.0\ShowCaseAPI.Repositories.deps.json
 C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.Repositories\bin\Debug\net6.0\ShowCaseAPI.Repositories.dll
 C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.Repositories\bin\Debug\net6.0\ShowCaseAPI.Repositories.pdb
@@ -28,3 +13,18 @@ C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2
 C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.Repositories\obj\Debug\net6.0\refint\ShowCaseAPI.Repositories.dll
 C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.Repositories\obj\Debug\net6.0\ShowCaseAPI.Repositories.pdb
 C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.Repositories\obj\Debug\net6.0\ref\ShowCaseAPI.Repositories.dll
+D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.Repositories\bin\Debug\net6.0\ShowCaseAPI.Repositories.deps.json
+D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.Repositories\bin\Debug\net6.0\ShowCaseAPI.Repositories.dll
+D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.Repositories\bin\Debug\net6.0\ShowCaseAPI.Repositories.pdb
+D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.Repositories\bin\Debug\net6.0\ShowCaseAPI.Domain.dll
+D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.Repositories\bin\Debug\net6.0\ShowCaseAPI.Domain.pdb
+D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.Repositories\obj\Debug\net6.0\ShowCaseAPI.Repositories.csproj.AssemblyReference.cache
+D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.Repositories\obj\Debug\net6.0\ShowCaseAPI.Repositories.GeneratedMSBuildEditorConfig.editorconfig
+D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.Repositories\obj\Debug\net6.0\ShowCaseAPI.Repositories.AssemblyInfoInputs.cache
+D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.Repositories\obj\Debug\net6.0\ShowCaseAPI.Repositories.AssemblyInfo.cs
+D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.Repositories\obj\Debug\net6.0\ShowCaseAPI.Repositories.csproj.CoreCompileInputs.cache
+D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.Repositories\obj\Debug\net6.0\ShowCaseAPI.Repositories.csproj.CopyComplete
+D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.Repositories\obj\Debug\net6.0\ShowCaseAPI.Repositories.dll
+D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.Repositories\obj\Debug\net6.0\refint\ShowCaseAPI.Repositories.dll
+D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.Repositories\obj\Debug\net6.0\ShowCaseAPI.Repositories.pdb
+D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.Repositories\obj\Debug\net6.0\ref\ShowCaseAPI.Repositories.dll
