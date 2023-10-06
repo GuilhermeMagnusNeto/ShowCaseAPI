@@ -15,12 +15,12 @@ namespace ShowCaseAPI.Domain.Entities
     public class ShowcaseStyle : Entity
     {
         [Column("SHOWCASE_ID")]
-        public string ShowcaseId { get; set; }
+        public Guid ShowcaseId { get; set; }
         public virtual Showcase Showcase { get; set; }
 
         #region STYLE
         [Column("TEMPLATE_ID")]
-        public string TemplateId { get; set; }
+        public Guid TemplateId { get; set; }
         public virtual Template Template { get; set; }
 
         [Column("BACKGROUND_COLOR_CODE")]
@@ -43,6 +43,7 @@ namespace ShowCaseAPI.Domain.Entities
             self.Property(x => x.Deleted).HasDefaultValue(false);
 
             self.Property(x => x.TemplateId).IsRequired();
+            self.Property(x => x.ShowcaseId).IsRequired();
             self.Property(x => x.ShowProductValue).HasDefaultValue(true);
             self.Property(x => x.ShowStoreLogo).HasDefaultValue(true);
 

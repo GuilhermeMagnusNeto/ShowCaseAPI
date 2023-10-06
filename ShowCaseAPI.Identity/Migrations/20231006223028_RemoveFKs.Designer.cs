@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using ShowCaseAPI.Infra.Context.CrossCutting.Identity.Data;
@@ -11,9 +12,11 @@ using ShowCaseAPI.Infra.Context.CrossCutting.Identity.Data;
 namespace ShowCaseAPI.Identity.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231006223028_RemoveFKs")]
+    partial class RemoveFKs
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -92,10 +95,6 @@ namespace ShowCaseAPI.Identity.Migrations
                         .HasColumnType("text")
                         .HasColumnName("NAME");
 
-                    b.Property<Guid>("StoreId")
-                        .HasColumnType("uuid")
-                        .HasColumnName("STORE_ID");
-
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("timestamp with time zone")
                         .HasColumnName("UPDATED_AT");
@@ -104,8 +103,6 @@ namespace ShowCaseAPI.Identity.Migrations
 
                     b.HasIndex("ExclusiveURL")
                         .IsUnique();
-
-                    b.HasIndex("StoreId");
 
                     b.ToTable("showcases");
                 });
@@ -144,23 +141,11 @@ namespace ShowCaseAPI.Identity.Migrations
                         .HasDefaultValue(true)
                         .HasColumnName("SHOW_STORE_LOGO");
 
-                    b.Property<Guid>("ShowcaseId")
-                        .HasColumnType("uuid")
-                        .HasColumnName("SHOWCASE_ID");
-
-                    b.Property<Guid>("TemplateId")
-                        .HasColumnType("uuid")
-                        .HasColumnName("TEMPLATE_ID");
-
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("timestamp with time zone")
                         .HasColumnName("UPDATED_AT");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ShowcaseId");
-
-                    b.HasIndex("TemplateId");
 
                     b.ToTable("showcase_styles");
                 });
@@ -196,16 +181,10 @@ namespace ShowCaseAPI.Identity.Migrations
                         .HasColumnType("timestamp with time zone")
                         .HasColumnName("UPDATED_AT");
 
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uuid")
-                        .HasColumnName("USER_ID");
-
                     b.HasKey("Id");
 
                     b.HasIndex("Name")
                         .IsUnique();
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("stores");
                 });
@@ -227,10 +206,6 @@ namespace ShowCaseAPI.Identity.Migrations
                         .HasDefaultValue(false)
                         .HasColumnName("DELETED");
 
-                    b.Property<Guid>("ProductId")
-                        .HasColumnType("uuid")
-                        .HasColumnName("PRODUCT_ID");
-
                     b.Property<string>("StoreId")
                         .IsRequired()
                         .HasColumnType("text")
@@ -244,8 +219,6 @@ namespace ShowCaseAPI.Identity.Migrations
                         .HasColumnName("UPDATED_AT");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ProductId");
 
                     b.HasIndex("StoreId1");
 
@@ -333,62 +306,13 @@ namespace ShowCaseAPI.Identity.Migrations
                     b.ToTable("users");
                 });
 
-            modelBuilder.Entity("ShowCaseAPI.Domain.Entities.Showcase", b =>
-                {
-                    b.HasOne("ShowCaseAPI.Domain.Entities.Store", "Store")
-                        .WithMany()
-                        .HasForeignKey("StoreId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Store");
-                });
-
-            modelBuilder.Entity("ShowCaseAPI.Domain.Entities.ShowcaseStyle", b =>
-                {
-                    b.HasOne("ShowCaseAPI.Domain.Entities.Showcase", "Showcase")
-                        .WithMany()
-                        .HasForeignKey("ShowcaseId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("ShowCaseAPI.Domain.Entities.Template", "Template")
-                        .WithMany()
-                        .HasForeignKey("TemplateId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Showcase");
-
-                    b.Navigation("Template");
-                });
-
-            modelBuilder.Entity("ShowCaseAPI.Domain.Entities.Store", b =>
-                {
-                    b.HasOne("ShowCaseAPI.Domain.Entities.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
-                });
-
             modelBuilder.Entity("ShowCaseAPI.Domain.Entities.StoreProduct", b =>
                 {
-                    b.HasOne("ShowCaseAPI.Domain.Entities.Product", "Product")
-                        .WithMany()
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("ShowCaseAPI.Domain.Entities.Store", "Store")
                         .WithMany()
                         .HasForeignKey("StoreId1")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Product");
 
                     b.Navigation("Store");
                 });

@@ -14,9 +14,10 @@ string connectionString = builder.Configuration.GetConnectionString("ShowCaseDB"
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
     options.UseNpgsql(connectionString);
-    //options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
+    options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
 });
 
+//TODO: Nati
 //NativeInjectorBootStrapper.RegisterServices(builder.Services);
 builder.Services.AddHttpContextAccessor();
 

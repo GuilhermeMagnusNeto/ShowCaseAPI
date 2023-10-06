@@ -21,7 +21,7 @@ namespace ShowCaseAPI.Domain.Entities
         public string Name { get; set; }
 
         [Column("STORE_ID")]
-        public string StoreId { get; set; }
+        public Guid StoreId { get; set; }
         public virtual Store Store { get; set; }
     }
 
