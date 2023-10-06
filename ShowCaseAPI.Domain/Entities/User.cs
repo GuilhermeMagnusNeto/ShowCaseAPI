@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using ShowCaseAPI.Domain.Entities.Base;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -33,10 +34,10 @@ namespace ShowCaseAPI.Domain.Entities
         public static EntityTypeBuilder<TEntity> ConfigureUnique<TEntity>(this EntityTypeBuilder<TEntity> self, ModelBuilder modelBuilder) where TEntity : User
         {
             self.HasKey(x => x.Id);
-            self.Property(x => x.Id).IsRequired();
+            self.HasIndex(x => x.Id).IsUnique(); 
             self.Property(x => x.Deleted).HasDefaultValue(false);
 
-            self.HasIndex(x => x.PasswordHash).IsUnique();
+            self.Property(x => x.PasswordHash).IsRequired();
             self.Property(x => x.Name).IsRequired();
             self.Property(x => x.Email).IsRequired();
             self.Property(x => x.EmailConfirmed).HasDefaultValue(false);
