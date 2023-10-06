@@ -1,0 +1,98 @@
+# Pastas e arquivos a serem ignorados no projeto C# com Entity Framework Core
+
+# Arquivos de compilação do Visual Studio
+bin/
+obj/
+
+# Pasta de saída de build
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+[Aa][Rr][Cc][Oo][Ss][Xx]/
+[Aa][Rr][Cc][Hh]/
+[Aa][Rr][Cc]/
+[Zz][Ii][Pp]/
+[Oo][Bb][Jj]/
+[Ll][Oo][Gg]/
+[Ll][Oo][Gg][Ss]/
+
+# Visual Studio et cetera
+*.suo
+*.user
+*.sln.docstates
+
+# Pacotes NuGet
+packages/
+
+# Consolidação de diretórios de projeto
+## .net Core
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Cache de repositório local do Visual Studio
+.vs2017/
+.vs2019/
+ipch/
+.idea/
+.vscode/
+
+# Visual Studio para Mac
+.vscode/
+.idea/
+.idea.VirtualState/
+# User-specific files
+*.suo
+*.user
+*.suo
+*.user
+*.suo
+*.user
+*.suo
+*.user
+*.suo
+*.user
+
+# Mono Auto Generated Files
+mono_crash.*
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# VS Code directories
+.vscode/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
+
+# JetBrains Rider
+.idea/
+
+# User-specific files
+*.suo
+*.user
+
+# Visual Studio for Mac
+.idea/
+
+# Rider
+.idea/
+.ideaVirtualState/
