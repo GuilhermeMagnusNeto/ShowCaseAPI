@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using ShowCaseAPI.Infra.Context.CrossCutting.Identity.Data;
 using ShowCaseAPI.Repositories.Interface;
 using ShowCaseAPI.Repositories.Repository;
 
@@ -11,14 +13,6 @@ namespace ShowCaseAPI.IoC
             // Data - Repository
             services.AddScoped<IProductRepository, ProductRepository>();
 
-
-
-            //services.AddDbContext<ApplicationDbContext>(options =>
-            //{
-            //    options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
-            //});
-
-            //services.AddTransient<IAppDbContext, ApplicationDbContext>();
         }
     }
 }

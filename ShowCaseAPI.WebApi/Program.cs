@@ -2,7 +2,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using ShowCaseAPI.Infra.Context.CrossCutting.Identity.Data;
 using ShowCaseAPI.IoC;
-//using ShowCaseAPI.IoC;
+using ShowCaseAPI.Repositories.Interface;
+using ShowCaseAPI.Repositories.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,8 +18,9 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
 });
 
-//TODO: Nati
-//NativeInjectorBootStrapper.RegisterServices(builder.Services);
+// Data - Repository
+NativeInjectorBootStrapper.RegisterServices(builder.Services);
+
 builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddControllers();

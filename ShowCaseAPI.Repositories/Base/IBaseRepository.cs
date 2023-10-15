@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace ShowCaseAPI.Repositories.Base
 {
-    public interface IBaseRepository <T> where T: class
+    public interface IBaseRepository <T> where T: Entity
     {
-        int Insert(T entity);
-        int Update(T entity);
-        int Delete(Guid id);
-        IEnumerable<T> GetAll();
-        T GetById(Guid id);
+        Task<int> Insert(T entity);
+        Task<int> Update(T entity);
+        Task<int> Delete(Guid id);
+        Task<IEnumerable<T>> GetAll();
+        Task<T> GetById(Guid id);
     }
 }

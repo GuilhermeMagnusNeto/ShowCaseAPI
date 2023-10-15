@@ -1231,6 +1231,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "ShowCaseAPI.Identity": "1.0.0",
           "ShowCaseAPI.Repositories": "1.0.0"
         },
         "compile": {
@@ -1245,7 +1246,8 @@
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "7.0.11",
-          "ShowCaseAPI.Domain": "1.0.0"
+          "ShowCaseAPI.Domain": "1.0.0",
+          "ShowCaseAPI.Identity": "1.0.0"
         },
         "compile": {
           "bin/placeholder/ShowCaseAPI.Repositories.dll": {}

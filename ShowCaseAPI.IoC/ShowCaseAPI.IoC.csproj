@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ShowCaseAPI.Identity\ShowCaseAPI.Identity.csproj" />
     <ProjectReference Include="..\ShowCaseAPI.Repositories\ShowCaseAPI.Repositories.csproj" />
   </ItemGroup>
 

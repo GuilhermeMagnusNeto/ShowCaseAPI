@@ -193,6 +193,9 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
+              "D:\\Programacao\\Projetos\\ShowCaseAPI\\ShowCaseAPI.Identity\\ShowCaseAPI.Identity.csproj": {
+                "projectPath": "D:\\Programacao\\Projetos\\ShowCaseAPI\\ShowCaseAPI.Identity\\ShowCaseAPI.Identity.csproj"
+              },
               "D:\\Programacao\\Projetos\\ShowCaseAPI\\ShowCaseAPI.Repositories\\ShowCaseAPI.Repositories.csproj": {
                 "projectPath": "D:\\Programacao\\Projetos\\ShowCaseAPI\\ShowCaseAPI.Repositories\\ShowCaseAPI.Repositories.csproj"
               }
@@ -259,6 +262,9 @@
             "projectReferences": {
               "D:\\Programacao\\Projetos\\ShowCaseAPI\\ShowCaseAPI.Domain\\ShowCaseAPI.Domain.csproj": {
                 "projectPath": "D:\\Programacao\\Projetos\\ShowCaseAPI\\ShowCaseAPI.Domain\\ShowCaseAPI.Domain.csproj"
+              },
+              "D:\\Programacao\\Projetos\\ShowCaseAPI\\ShowCaseAPI.Identity\\ShowCaseAPI.Identity.csproj": {
+                "projectPath": "D:\\Programacao\\Projetos\\ShowCaseAPI\\ShowCaseAPI.Identity\\ShowCaseAPI.Identity.csproj"
               }
             }
           }

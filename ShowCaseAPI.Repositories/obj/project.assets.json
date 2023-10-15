@@ -562,6 +562,42 @@
           }
         }
       },
+      "Npgsql/7.0.6": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Logging.Abstractions": "6.0.0",
+          "System.Runtime.CompilerServices.Unsafe": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0/Npgsql.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Npgsql.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Npgsql.EntityFrameworkCore.PostgreSQL/7.0.11": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "[7.0.11, 8.0.0)",
+          "Microsoft.EntityFrameworkCore.Abstractions": "[7.0.11, 8.0.0)",
+          "Microsoft.EntityFrameworkCore.Relational": "[7.0.11, 8.0.0)",
+          "Npgsql": "7.0.6"
+        },
+        "compile": {
+          "lib/net6.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "System.Configuration.ConfigurationManager/6.0.1": {
         "type": "package",
         "dependencies": {
@@ -976,6 +1012,22 @@
         },
         "runtime": {
           "bin/placeholder/ShowCaseAPI.Domain.dll": {}
+        }
+      },
+      "ShowCaseAPI.Identity/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "7.0.11",
+          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.11",
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "7.0.11",
+          "ShowCaseAPI.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ShowCaseAPI.Identity.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ShowCaseAPI.Identity.dll": {}
         }
       }
     }
@@ -1810,6 +1862,48 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "Npgsql/7.0.6": {
+      "sha512": "TAqvwRnm3NJ0QvN7cvu6geJkbI0XPzGVRElVY5hF4gsgA+BnE12x6GM1TLhdeq+7ZKvvo3BD8jXKnXmr3tvdEw==",
+      "type": "package",
+      "path": "npgsql/7.0.6",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "lib/net5.0/Npgsql.dll",
+        "lib/net5.0/Npgsql.xml",
+        "lib/net6.0/Npgsql.dll",
+        "lib/net6.0/Npgsql.xml",
+        "lib/net7.0/Npgsql.dll",
+        "lib/net7.0/Npgsql.xml",
+        "lib/netcoreapp3.1/Npgsql.dll",
+        "lib/netcoreapp3.1/Npgsql.xml",
+        "lib/netstandard2.0/Npgsql.dll",
+        "lib/netstandard2.0/Npgsql.xml",
+        "lib/netstandard2.1/Npgsql.dll",
+        "lib/netstandard2.1/Npgsql.xml",
+        "npgsql.7.0.6.nupkg.sha512",
+        "npgsql.nuspec",
+        "postgresql.png"
+      ]
+    },
+    "Npgsql.EntityFrameworkCore.PostgreSQL/7.0.11": {
+      "sha512": "cHEgEz0ldXc9wVANs8sJqC+3eilqefrkasCBgaVT0tyj8tb1p3/pwy2ngjboNkDG3M0z+xJsJ4jC5p8wySAM3w==",
+      "type": "package",
+      "path": "npgsql.entityframeworkcore.postgresql/7.0.11",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "lib/net6.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll",
+        "lib/net6.0/Npgsql.EntityFrameworkCore.PostgreSQL.xml",
+        "lib/net7.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll",
+        "lib/net7.0/Npgsql.EntityFrameworkCore.PostgreSQL.xml",
+        "npgsql.entityframeworkcore.postgresql.7.0.11.nupkg.sha512",
+        "npgsql.entityframeworkcore.postgresql.nuspec",
+        "postgresql.png"
+      ]
+    },
     "System.Configuration.ConfigurationManager/6.0.1": {
       "sha512": "jXw9MlUu/kRfEU0WyTptAVueupqIeE3/rl0EZDMlf8pcvJnitQ8HeVEp69rZdaStXwTV72boi/Bhw8lOeO+U2w==",
       "type": "package",
@@ -2629,12 +2723,18 @@
       "type": "project",
       "path": "../ShowCaseAPI.Domain/ShowCaseAPI.Domain.csproj",
       "msbuildProject": "../ShowCaseAPI.Domain/ShowCaseAPI.Domain.csproj"
+    },
+    "ShowCaseAPI.Identity/1.0.0": {
+      "type": "project",
+      "path": "../ShowCaseAPI.Identity/ShowCaseAPI.Identity.csproj",
+      "msbuildProject": "../ShowCaseAPI.Identity/ShowCaseAPI.Identity.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
       "Microsoft.EntityFrameworkCore >= 7.0.11",
-      "ShowCaseAPI.Domain >= 1.0.0"
+      "ShowCaseAPI.Domain >= 1.0.0",
+      "ShowCaseAPI.Identity >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -2673,6 +2773,9 @@
           "projectReferences": {
             "D:\\Programacao\\Projetos\\ShowCaseAPI\\ShowCaseAPI.Domain\\ShowCaseAPI.Domain.csproj": {
               "projectPath": "D:\\Programacao\\Projetos\\ShowCaseAPI\\ShowCaseAPI.Domain\\ShowCaseAPI.Domain.csproj"
+            },
+            "D:\\Programacao\\Projetos\\ShowCaseAPI\\ShowCaseAPI.Identity\\ShowCaseAPI.Identity.csproj": {
+              "projectPath": "D:\\Programacao\\Projetos\\ShowCaseAPI\\ShowCaseAPI.Identity\\ShowCaseAPI.Identity.csproj"
             }
           }
         }

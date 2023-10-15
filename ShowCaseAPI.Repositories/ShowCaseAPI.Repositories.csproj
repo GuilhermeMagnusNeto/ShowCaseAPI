@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ShowCaseAPI.Domain\ShowCaseAPI.Domain.csproj" />
+    <ProjectReference Include="..\ShowCaseAPI.Identity\ShowCaseAPI.Identity.csproj" />
   </ItemGroup>
 
 </Project>

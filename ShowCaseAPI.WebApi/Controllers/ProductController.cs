@@ -17,11 +17,11 @@ namespace ShowCaseAPI.WebApi.Controllers
         }
 
         [HttpGet("GetById/{id}")]
-        public IActionResult GetById(Guid id)
+        public async Task<IActionResult> GetByIdAsync(Guid id)
         {
             try
             {
-                var result = _productRepository.GetById(id);
+                var result = await _productRepository.GetById(id);
                 if (result == null)
                 {
                     return NotFound("Nenhum produto encontrado!");
@@ -35,11 +35,11 @@ namespace ShowCaseAPI.WebApi.Controllers
         }
 
         [HttpGet("GetAll")]
-        public IActionResult GetAll()
+        public async Task<IActionResult> GetAllAsync()
         {
             try
             {
-                var result = _productRepository.GetAll();
+                var result = (await _productRepository.GetAll()).ToList();
                 return Ok(result);
             }
             catch (Exception e)
@@ -49,7 +49,7 @@ namespace ShowCaseAPI.WebApi.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post(PostProductViewModel vm)
+        public async Task<IActionResult> PostAsync(PostProductViewModel vm)
         {
             try
             {
@@ -58,10 +58,10 @@ namespace ShowCaseAPI.WebApi.Controllers
                     Name = vm.Name,
                     Value = vm.Value
                 };
-                var result = _productRepository.Insert(product);
+                var result = await _productRepository.Insert(product);
                 if (result > 0)
                 {
-                    return Ok(result);
+                    return Ok("Producto criado com sucesso!");
                 }
                 return BadRequest("Ocorreu um erro durante a criação do produto.");
             }
@@ -72,11 +72,11 @@ namespace ShowCaseAPI.WebApi.Controllers
         }
 
         [HttpPut]
-        public IActionResult Put(PutProductViewModel vm)
+        public async Task<IActionResult> PutAsync(PutProductViewModel vm)
         {
             try
             {
-                var product = _productRepository.GetById(vm.Id);
+                var product = await _productRepository.GetById(vm.Id);
                 if (product == null)
                 {
                     return BadRequest("Nenhum produto encontrado!");
@@ -85,10 +85,10 @@ namespace ShowCaseAPI.WebApi.Controllers
                 product.Name = vm.Name;
                 product.Value = vm.Value;
 
-                var result = _productRepository.Update(product);
+                var result = await _productRepository.Update(product);
                 if (result > 0)
                 {
-                    return Ok(result);
+                    return Ok("Produto atualizado com sucesso!");
                 }
                 return BadRequest("Ocorreu um erro durante a atualização do produto.");
             }
@@ -99,20 +99,20 @@ namespace ShowCaseAPI.WebApi.Controllers
         }
 
         [HttpDelete("{id}")]
-        public IActionResult Delete(Guid id)
+        public async Task<IActionResult> DeleteAsync(Guid id)
         {
             try
             {
-                var product = _productRepository.GetById(id);
+                var product = await _productRepository.GetById(id);
                 if (product == null)
                 {
                     return BadRequest("Nenhum produto encontrado!");
                 };
 
-                var result = _productRepository.Delete(product.Id);
+                var result = await _productRepository.Delete(product.Id);
                 if (result > 0)
                 {
-                    return Ok(result);
+                    return Ok("Produto excluido com sucesso!");
                 }
                 return BadRequest("Ocorreu um erro durante a exclusão do produto.");
             }
