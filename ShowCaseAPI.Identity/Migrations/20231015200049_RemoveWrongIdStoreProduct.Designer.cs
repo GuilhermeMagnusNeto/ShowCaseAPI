@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using ShowCaseAPI.Infra.Context.CrossCutting.Identity.Data;
@@ -11,9 +12,11 @@ using ShowCaseAPI.Infra.Context.CrossCutting.Identity.Data;
 namespace ShowCaseAPI.Identity.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231015200049_RemoveWrongIdStoreProduct")]
+    partial class RemoveWrongIdStoreProduct
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -231,10 +234,6 @@ namespace ShowCaseAPI.Identity.Migrations
                         .HasColumnType("uuid")
                         .HasColumnName("PRODUCT_ID");
 
-                    b.Property<Guid>("StoreId")
-                        .HasColumnType("uuid")
-                        .HasColumnName("STORE_ID");
-
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("timestamp with time zone")
                         .HasColumnName("UPDATED_AT");
@@ -242,8 +241,6 @@ namespace ShowCaseAPI.Identity.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("ProductId");
-
-                    b.HasIndex("StoreId");
 
                     b.ToTable("store_products");
                 });
@@ -378,15 +375,7 @@ namespace ShowCaseAPI.Identity.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("ShowCaseAPI.Domain.Entities.Store", "Store")
-                        .WithMany()
-                        .HasForeignKey("StoreId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Product");
-
-                    b.Navigation("Store");
                 });
 #pragma warning restore 612, 618
         }
