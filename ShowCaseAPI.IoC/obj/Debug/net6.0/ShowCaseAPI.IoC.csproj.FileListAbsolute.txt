@@ -1,0 +1,5 @@
+C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.IoC\obj\Debug\net6.0\ShowCaseAPI.IoC.csproj.AssemblyReference.cache
+C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.IoC\obj\Debug\net6.0\ShowCaseAPI.IoC.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.IoC\obj\Debug\net6.0\ShowCaseAPI.IoC.AssemblyInfoInputs.cache
+C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.IoC\obj\Debug\net6.0\ShowCaseAPI.IoC.AssemblyInfo.cs
+C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.IoC\obj\Debug\net6.0\ShowCaseAPI.IoC.csproj.CoreCompileInputs.cache

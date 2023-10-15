@@ -11,7 +11,7 @@ namespace ShowCaseAPI.IoC
         public static void RegisterServices(IServiceCollection services)
         {
             // Data - Repository
-            services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<IProductRepository, StoreProductRepository>();
 
         }
     }
