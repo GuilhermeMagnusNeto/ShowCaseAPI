@@ -27,7 +27,7 @@ namespace ShowCaseAPI.WebApi.Controllers
             try
             {
                 var result = await _storeProductRepository.GetAll();
-                var products = result.Where(x=>x.StoreId == storeId).toList().sSelect(x=>x.Product);
+                var products = result.Where(x => x.StoreId == storeId).ToList().Select(x => x.Product);
                 if (result == null)
                 {
                     return NotFound("Nenhum produto encontrado!");
@@ -39,4 +39,5 @@ namespace ShowCaseAPI.WebApi.Controllers
                 return StatusCode((int)HttpStatusCode.BadRequest, e.Message);
             }
         }
+    }
 }
