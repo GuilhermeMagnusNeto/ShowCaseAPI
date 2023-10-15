@@ -12,7 +12,7 @@ namespace ShowCaseAPI.IoC
         {
             // Data - Repository
             services.AddScoped<IProductRepository, ProductRepository>();
-
+            services.AddScoped<IUserRepository, UserRepository>();
         }
     }
 }

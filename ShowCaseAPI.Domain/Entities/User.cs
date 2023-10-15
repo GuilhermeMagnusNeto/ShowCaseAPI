@@ -20,6 +20,9 @@ namespace ShowCaseAPI.Domain.Entities
         [Column("PASSWORD_HASH")]
         public string PasswordHash { get; set; }
 
+        [Column("PASSWORD_SALT")]
+        public string PasswordSalt { get; set; }
+
         [Column("EMAIL")]
         public string Email { get; set; }
 
@@ -37,9 +40,11 @@ namespace ShowCaseAPI.Domain.Entities
             self.HasIndex(x => x.Id).IsUnique(); 
             self.Property(x => x.Deleted).HasDefaultValue(false);
 
-            self.Property(x => x.PasswordHash).IsRequired();
-            self.Property(x => x.Name).IsRequired();
             self.Property(x => x.Email).IsRequired();
+            self.HasIndex(x => x.Email).IsUnique();
+            self.Property(x => x.PasswordHash).IsRequired();
+            self.Property(x => x.PasswordSalt).IsRequired();
+            self.Property(x => x.Name).IsRequired();
             self.Property(x => x.EmailConfirmed).HasDefaultValue(false);
 
             return self;
