@@ -2,6 +2,7 @@
 using ShowCaseAPI.Domain.Entities;
 using ShowCaseAPI.Repositories.Interface;
 using ShowCaseAPI.WebApi.Model.Product;
+using ShowCaseAPI.WebApi.Model.User;
 using System.Net;
 
 namespace ShowCaseAPI.WebApi.Controllers
