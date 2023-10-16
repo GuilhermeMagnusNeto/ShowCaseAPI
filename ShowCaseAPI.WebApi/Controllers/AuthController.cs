@@ -1,22 +1,32 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 using ShowCaseAPI.Domain.Entities;
 using ShowCaseAPI.Repositories.Extension;
 using ShowCaseAPI.Repositories.Interface;
 using ShowCaseAPI.Repositories.Repository;
 using ShowCaseAPI.WebApi.Model.Product;
 using ShowCaseAPI.WebApi.Model.User;
+using System.IdentityModel.Tokens.Jwt;
 using System.Net;
+using System.Security.Claims;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace ShowCaseAPI.WebApi.Controllers
 {
     [Route("api/v1/[controller]")]
+    [AllowAnonymous]
     [ApiController]
     public class AuthController : ControllerBase
     {
         private readonly IUserRepository _userRepository;
-        public AuthController(IUserRepository userRepository)
+        private readonly IConfiguration _configuration;
+        public AuthController(IUserRepository userRepository, IConfiguration configuration)
         {
             _userRepository = userRepository;
+            _configuration = configuration;
         }
 
         [HttpPost("Register")]
@@ -58,12 +68,42 @@ namespace ShowCaseAPI.WebApi.Controllers
                     return BadRequest("Email não encontrado!");
                 }
 
-                return Ok(user);
+                if (!vm.Password.VerifyPasswordHash(user.PasswordHash, user.PasswordSalt))
+                {
+                    return BadRequest("Senha incorreta!");
+                }
+
+                string token = CreateToken(user);
+                return Ok(token);
             }
             catch (Exception e)
             {
                 return StatusCode((int)HttpStatusCode.BadRequest, e.Message);
             }
         }
+
+
+
+        #region _FUNCTIONS
+        private string CreateToken(User user)
+        {
+            
+            List<Claim> claims = new List<Claim>
+            {
+                new Claim(ClaimTypes.Name, user.Email)
+            };
+
+            var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(_configuration.GetSection("AppSettings:Token").Value));        
+            var cred = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
+            var token = new JwtSecurityToken(
+                claims: claims,
+                expires: DateTime.UtcNow.AddDays(1),
+                signingCredentials: cred);
+
+            var jwt = new JwtSecurityTokenHandler().WriteToken(token);
+
+            return jwt;
+        }
+        #endregion //_FUNCTIONS
     }
 }

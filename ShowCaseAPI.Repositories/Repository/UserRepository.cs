@@ -18,6 +18,11 @@ namespace ShowCaseAPI.Repositories.Repository
 
         public async Task<User> GetByEmail(string email)
         {
+            var teste = (email.ToUpper());
+            var todosusuarios = _dbContext.Users.ToList();
+            var resultado = _dbContext.Users.FirstOrDefault(u => u.Email.ToUpper().Equals(email.ToUpper()));
+
+
             return _dbContext.Users.FirstOrDefault(u => u.Email.ToUpper().Equals(email.ToUpper()));
         }
     }

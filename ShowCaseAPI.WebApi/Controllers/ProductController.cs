@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using ShowCaseAPI.Domain.Entities;
 using ShowCaseAPI.Repositories.Interface;
 using ShowCaseAPI.WebApi.Model.Product;
@@ -110,7 +111,7 @@ namespace ShowCaseAPI.WebApi.Controllers
                     return BadRequest("Nenhum produto encontrado!");
                 };
 
-                var result = await _productRepository.Delete(product.Id);
+                var result = await _productRepository.Delete(id);
                 if (result > 0)
                 {
                     return Ok("Produto excluido com sucesso!");
