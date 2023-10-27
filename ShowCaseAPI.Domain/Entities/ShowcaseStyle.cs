@@ -42,10 +42,13 @@ namespace ShowCaseAPI.Domain.Entities
             self.Property(x => x.Id).IsRequired();
             self.Property(x => x.Deleted).HasDefaultValue(false);
 
-            self.Property(x => x.TemplateId).IsRequired();
-            self.Property(x => x.ShowcaseId).IsRequired();
             self.Property(x => x.ShowProductValue).HasDefaultValue(true);
             self.Property(x => x.ShowStoreLogo).HasDefaultValue(true);
+            self.Property(x => x.ShowcaseId).IsRequired();
+            self.Property(x => x.TemplateId).IsRequired();
+            self.Property(x => x.BackgroundColorCode).IsRequired(false);
+            self.Property(x => x.ShowProductValue).IsRequired();
+            self.Property(x => x.ShowStoreLogo).IsRequired();
 
             return self;
         }

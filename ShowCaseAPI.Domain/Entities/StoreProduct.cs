@@ -26,10 +26,10 @@ namespace ShowCaseAPI.Domain.Entities
 
         /// <summary> Stock Keeping Unit </summary>
         [Column("SKU")]
-        public string? SKU { get; set; }
+        public string SKU { get; set; }
 
         [Column("PRODUCT_PICTURE")]
-        public string? ProductPicture { get; set; }
+        public string ProductPicture { get; set; }
     }
 
     public static class StoreProductDbBuilder
@@ -42,6 +42,9 @@ namespace ShowCaseAPI.Domain.Entities
 
             self.Property(x => x.StoreId).IsRequired();
             self.Property(x => x.Name).IsRequired();
+            self.Property(x => x.Value).IsRequired(false);
+            self.Property(x => x.SKU).IsRequired(false);
+            self.Property(x => x.ProductPicture).IsRequired(false);
 
             return self;
         }

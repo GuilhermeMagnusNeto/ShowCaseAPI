@@ -4,6 +4,7 @@ using Microsoft.VisualBasic;
 using ShowCaseAPI.Domain.Entities;
 using ShowCaseAPI.Repositories.Interface;
 using ShowCaseAPI.Repositories.Repository;
+using ShowCaseAPI.WebApi.Helper;
 using ShowCaseAPI.WebApi.Model.Showcase;
 using ShowCaseAPI.WebApi.Model.Store;
 using ShowCaseAPI.WebApi.Model.User;
@@ -34,17 +35,38 @@ namespace ShowCaseAPI.WebApi.Controllers
                 var result = await _storeRepository.GetById(id);
                 if (result == null)
                 {
-                    return NotFound("Nenhuma loja encontrado!");
+                    return ResponseHelper.BadRequest("Nenhuma loja encontrado!");
                 }
-                return Ok(new StoreViewModel
+                return ResponseHelper.Success(new StoreViewModel
                 {
+                    Id = result.Id,
                     Name = result.Name,
                     StoreLogo = result.StoreLogo
                 });
             }
             catch (Exception e)
             {
-                return StatusCode((int)HttpStatusCode.BadRequest, e.Message);
+                return ResponseHelper.InternalServerError(e.Message);
+            }
+        }
+
+        [HttpGet("GetAllStoresByUserId/{id}")]
+        public async Task<IActionResult> GetAllStoresByUserId(Guid id)
+        {
+            try
+            {
+                var result = _storeRepository.Query().Where(x => !x.Deleted && x.UserId == id).Select(x => new StoreViewModel
+                {
+                    Id = x.Id,
+                    Name = x.Name,
+                    StoreLogo = x.StoreLogo
+                }).ToList();
+
+                return ResponseHelper.Success(result);
+            }
+            catch (Exception e)
+            {
+                return ResponseHelper.InternalServerError(e.Message);
             }
         }
 
@@ -56,12 +78,12 @@ namespace ShowCaseAPI.WebApi.Controllers
                 var user = await _userRepository.GetById(vm.UserId);
                 if (user == null)
                 {
-                    return BadRequest("Usuário não encontrado!");
+                    return ResponseHelper.BadRequest("Usuário não encontrado!");
                 }
                 var existeName = _storeRepository.Query().Where(x => x.UserId == user.Id).Any(x => x.Name.ToUpper() == vm.Name.ToUpper());
                 if (existeName)
                 {
-                    return BadRequest("Você já tem uma loja com esse nome!");
+                    return ResponseHelper.BadRequest("Você já tem uma loja com esse nome!");
                 }
 
 
@@ -77,13 +99,18 @@ namespace ShowCaseAPI.WebApi.Controllers
                 var result = await _storeRepository.Insert(store);
                 if (result > 0)
                 {
-                    return Ok("Loja criada com sucesso!");
+                    return ResponseHelper.Success(new StoreViewModel
+                    {
+                        Id = store.Id,
+                        Name = store.Name,
+                        StoreLogo = store.StoreLogo
+                    });
                 }
-                return BadRequest("Ocorreu um erro durante a criação da loja!");
+                return ResponseHelper.BadRequest();
             }
             catch (Exception e)
             {
-                return StatusCode((int)HttpStatusCode.BadRequest, e.Message);
+                return ResponseHelper.InternalServerError(e.Message);
             }
         }
 
@@ -95,18 +122,17 @@ namespace ShowCaseAPI.WebApi.Controllers
                 var store = await _storeRepository.GetById(vm.Id);
                 if (store == null)
                 {
-                    return BadRequest("Nenhuma loja encontrado!");
+                    return ResponseHelper.BadRequest("Nenhuma loja encontrado!");
                 };
-
                 var user = await _userRepository.GetById(store.UserId);
                 if (user == null)
                 {
-                    return BadRequest("Usuário não encontrado!");
+                    return ResponseHelper.BadRequest("Usuário não encontrado!");
                 }
                 var existeName = _storeRepository.Query().Where(x => x.UserId == user.Id).Any(x => x.Name.ToUpper() == vm.Name.ToUpper());
                 if (existeName)
                 {
-                    return BadRequest("Você já tem uma loja com esse nome!");
+                    return ResponseHelper.BadRequest("Você já tem uma loja com esse nome!");
                 }
 
 
@@ -119,13 +145,13 @@ namespace ShowCaseAPI.WebApi.Controllers
                 var result = await _storeRepository.Update(store);
                 if (result > 0)
                 {
-                    return Ok("Loja atualizado com sucesso!");
+                    return ResponseHelper.Success();
                 }
-                return BadRequest("Ocorreu um erro durante a atualização da loja.");
+                return ResponseHelper.BadRequest();
             }
             catch (Exception e)
             {
-                return StatusCode((int)HttpStatusCode.BadRequest, e.Message);
+                return ResponseHelper.InternalServerError(e.Message);
             }
         }
 
@@ -137,7 +163,7 @@ namespace ShowCaseAPI.WebApi.Controllers
                 var store = await _storeRepository.GetById(id);
                 if (store == null)
                 {
-                    return BadRequest("Nenhuma loja encontrado!");
+                    return ResponseHelper.BadRequest("Nenhuma loja encontrado!");
                 };
 
                 var products = await _storeProductRepository.GetProductsByStoreId(store.Id);
@@ -146,21 +172,21 @@ namespace ShowCaseAPI.WebApi.Controllers
                     var productResult = await _storeProductRepository.Delete(product.Id);
                     if (productResult <= 0)
                     {
-                        return BadRequest("Ocorreu um erro durante a exclusão dos produtos da loja.");
+                        return ResponseHelper.BadRequest("Ocorreu um erro durante a exclusão dos produtos da loja.");
                     }
                 }
 
                 var resultStore = await _storeRepository.Delete(id);
                 if (resultStore <= 0)
                 {
-                    return BadRequest("Ocorreu um erro durante a exclusão da loja.");
+                    return ResponseHelper.BadRequest("Ocorreu um erro durante a exclusão da loja.");
                 }
 
-                return Ok("Loja excluida com sucesso!");
+                return ResponseHelper.Success();
             }
             catch (Exception e)
             {
-                return StatusCode((int)HttpStatusCode.BadRequest, e.Message);
+                return ResponseHelper.InternalServerError(e.Message);
             }
         }
     }

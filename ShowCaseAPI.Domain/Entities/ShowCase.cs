@@ -35,8 +35,8 @@ namespace ShowCaseAPI.Domain.Entities
 
             self.HasIndex(x => x.ExclusiveCode).IsUnique();
             self.Property(x => x.ExclusiveCode).IsRequired();
-            self.Property(x => x.StoreId).IsRequired();
             self.Property(x => x.Name).IsRequired();
+            self.Property(x => x.StoreId).IsRequired();
 
             return self;
         }

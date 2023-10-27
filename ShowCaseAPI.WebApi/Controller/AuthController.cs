@@ -4,10 +4,12 @@ using Microsoft.IdentityModel.Tokens;
 using ShowCaseAPI.Domain.Entities;
 using ShowCaseAPI.Repositories.Extension;
 using ShowCaseAPI.Repositories.Interface;
+using ShowCaseAPI.WebApi.Helper;
 using ShowCaseAPI.WebApi.Model.User;
 using System.IdentityModel.Tokens.Jwt;
 using System.Net;
 using System.Security.Claims;
+using System.Text.RegularExpressions;
 
 namespace ShowCaseAPI.WebApi.Controllers
 {
@@ -31,7 +33,12 @@ namespace ShowCaseAPI.WebApi.Controllers
             {
                 if (vm.Email.IsEmail())
                 {
-                    return BadRequest("Formato de email incorreto!");
+                    return ResponseHelper.BadRequest("Formato de email incorreto!");
+                }
+
+                if (_userRepository.Query().FirstOrDefault(x => x.Email.ToUpper() == vm.Email.ToUpper()) != null)
+                {
+                    return ResponseHelper.BadRequest("Email já cadastrado!");
                 }
                 var hash = vm.Password.CreatePasswordHash();
                 var user = new User
@@ -45,13 +52,14 @@ namespace ShowCaseAPI.WebApi.Controllers
                 var result = await _userRepository.Insert(user);
                 if (result > 0)
                 {
-                    return Ok("Usuário criado com sucesso!");
+                    return ResponseHelper.Success();
                 }
-                return BadRequest("Ocorreu um erro durante o registro do usuário.");
+
+                return ResponseHelper.BadRequest();
             }
             catch (Exception e)
             {
-                return StatusCode((int)HttpStatusCode.BadRequest, e.Message);
+                return ResponseHelper.InternalServerError(e.Message);
             }
         }
 
@@ -63,20 +71,26 @@ namespace ShowCaseAPI.WebApi.Controllers
                 var user = await _userRepository.GetByEmail(vm.Email);
                 if (user == null)
                 {
-                    return BadRequest("Email não encontrado!");
+                    return ResponseHelper.BadRequest("Email não encontrado!");
                 }
 
                 if (!vm.Password.VerifyPasswordHash(user.PasswordHash, user.PasswordSalt))
                 {
-                    return BadRequest("Senha incorreta!");
+                    return ResponseHelper.BadRequest("Senha incorreta!");
                 }
 
                 string token = CreateToken(user);
-                return Ok(token);
+                return ResponseHelper.Success(new UserViewModel
+                {
+                    Id = user.Id,
+                    Name = user.Name,
+                    Email = user.Email,
+                    Token = token
+                });
             }
             catch (Exception e)
             {
-                return StatusCode((int)HttpStatusCode.BadRequest, e.Message);
+                return ResponseHelper.InternalServerError(e.Message);
             }
         }
 
@@ -92,7 +106,7 @@ namespace ShowCaseAPI.WebApi.Controllers
                 var user = await _userRepository.GetByEmail(vm.Email);
                 if (user == null)
                 {
-                    return BadRequest("Email não encontrado ou confirmado!");
+                    return ResponseHelper.BadRequest("Email não encontrado!");
                 }
 
                 var hash = vm.NewPassword.CreatePasswordHash();
@@ -101,11 +115,11 @@ namespace ShowCaseAPI.WebApi.Controllers
                 user.PasswordSalt = hash.PasswordSalt;
 
                 var result = await _userRepository.Update(user);
-                return Ok("Senha alterada com sucesso!");
+                return ResponseHelper.Success();
             }
             catch (Exception e)
             {
-                return StatusCode((int)HttpStatusCode.BadRequest, e.Message);
+                return ResponseHelper.InternalServerError(e.Message);
             }
         }
 
@@ -134,7 +148,7 @@ namespace ShowCaseAPI.WebApi.Controllers
         //    }
         //    catch (Exception e)
         //    {
-        //        return StatusCode((int)HttpStatusCode.BadRequest, e.Message);
+        //        return ResponseHelper.InternalServerError(e.Message);
         //    }
         //}
 

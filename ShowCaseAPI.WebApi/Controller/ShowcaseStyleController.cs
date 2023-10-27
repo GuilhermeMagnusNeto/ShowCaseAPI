@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 using ShowCaseAPI.Domain.Entities;
 using ShowCaseAPI.Repositories.Interface;
+using ShowCaseAPI.WebApi.Helper;
 using ShowCaseAPI.WebApi.Model.Product;
 using ShowCaseAPI.WebApi.Model.Showcase;
 using ShowCaseAPI.WebApi.Model.ShowcaseStyle;
@@ -34,10 +36,10 @@ namespace ShowCaseAPI.WebApi.Controllers
                 var result = _showcaseStyleRepository.Query().FirstOrDefault(x => !x.Deleted && x.ShowcaseId == id);
                 if (result == null)
                 {
-                    return NotFound("Nenhum style encontrado!");
+                    return ResponseHelper.BadRequest("Nenhum style encontrado!");
                 }
 
-                return Ok(new ShowcaseStyleViewModel
+                return ResponseHelper.Success(new ShowcaseStyleViewModel
                 {
                     Id = result.Id,
                     TemplateId= result.TemplateId,
@@ -49,7 +51,7 @@ namespace ShowCaseAPI.WebApi.Controllers
             }
             catch (Exception e)
             {
-                return StatusCode((int)HttpStatusCode.BadRequest, e.Message);
+                return ResponseHelper.InternalServerError(e.Message);
             }
         }
      
@@ -62,13 +64,13 @@ namespace ShowCaseAPI.WebApi.Controllers
                 var store = await _showcaseRepository.GetById(vm.ShowcaseId);
                 if (store == null)
                 {
-                    BadRequest("Loja não encontrada");
+                    ResponseHelper.BadRequest("Loja não encontrada");
                 }
 
                 var template = await _templateRepository.GetById(vm.TemplateId);
                 if (template == null)
                 {
-                    BadRequest("template não encontrado");
+                    ResponseHelper.BadRequest("template não encontrado");
                 }
 
                 var style = new ShowcaseStyle()
@@ -80,13 +82,21 @@ namespace ShowCaseAPI.WebApi.Controllers
                 var result = await _showcaseStyleRepository.Insert(style);
                 if (result > 0)
                 {
-                    return Ok("Style da vitrine criada com sucesso!");
+                    return ResponseHelper.Success(new ShowcaseStyleViewModel
+                    {
+                        Id = style.Id,
+                        TemplateId = style.TemplateId,
+                        TemplateName = style.Template.Name,
+                        BackgroundColorCode = style.BackgroundColorCode,
+                        ShowProductValue = style.ShowProductValue,
+                        ShowStoreLogo = style.ShowStoreLogo
+                    });
                 }
-                return BadRequest("Ocorreu um erro durante a criação do style da vitrine.");
+                return ResponseHelper.BadRequest();
             }
             catch (Exception e)
             {
-                return StatusCode((int)HttpStatusCode.BadRequest, e.Message);
+                return ResponseHelper.InternalServerError(e.Message);
             }
         }
 
@@ -98,13 +108,13 @@ namespace ShowCaseAPI.WebApi.Controllers
                 var style = await _showcaseStyleRepository.GetById(vm.Id);
                 if (style == null)
                 {
-                    return BadRequest("Nenhum style encontrado!");
+                    return ResponseHelper.BadRequest("Nenhum style encontrado!");
                 };
 
                 var template = await _templateRepository.GetById(vm.TemplateId);
                 if (template == null)
                 {
-                    BadRequest("template não encontrado");
+                    ResponseHelper.BadRequest("nenhum template não encontrado");
                 }
 
                 style.TemplateId = vm.TemplateId;
@@ -115,13 +125,13 @@ namespace ShowCaseAPI.WebApi.Controllers
                 var result = await _showcaseStyleRepository.Update(style);
                 if (result > 0)
                 {
-                    return Ok("Style da vitrine atualizado com sucesso!");
+                    return ResponseHelper.Success();
                 }
-                return BadRequest("Ocorreu um erro durante a atualização do style vitrine.");
+                return BadRequest();
             }
             catch (Exception e)
             {
-                return StatusCode((int)HttpStatusCode.BadRequest, e.Message);
+                return ResponseHelper.InternalServerError(e.Message);
             }
         }
     }

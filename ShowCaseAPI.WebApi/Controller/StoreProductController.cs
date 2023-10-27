@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using ShowCaseAPI.Domain.Entities;
 using ShowCaseAPI.Repositories.Interface;
+using ShowCaseAPI.WebApi.Helper;
 using ShowCaseAPI.WebApi.Model.Product;
 using ShowCaseAPI.WebApi.Model.Store;
 using ShowCaseAPI.WebApi.Model.User;
@@ -30,10 +31,10 @@ namespace ShowCaseAPI.WebApi.Controllers
                 var result = await _storeProductRepository.GetById(id);
                 if (result == null)
                 {
-                    return NotFound("Nenhum produto encontrado!");
+                    return ResponseHelper.BadRequest("Nenhum produto encontrado!");
                 }
 
-                return Ok(new ProductViewModel
+                return ResponseHelper.Success(new ProductViewModel
                 {
                     Id = result.Id,
                     StoreId = result.StoreId,
@@ -44,7 +45,7 @@ namespace ShowCaseAPI.WebApi.Controllers
             }
             catch (Exception e)
             {
-                return StatusCode((int)HttpStatusCode.BadRequest, e.Message);
+                return ResponseHelper.InternalServerError(e.Message);
             }
         }
 
@@ -61,11 +62,11 @@ namespace ShowCaseAPI.WebApi.Controllers
                     Value = x.Value,
                     SKU = x.SKU
                 }).ToList();
-                return Ok(result);
+                return ResponseHelper.Success(result);
             }
             catch (Exception e)
             {
-                return StatusCode((int)HttpStatusCode.BadRequest, e.Message);
+                return ResponseHelper.InternalServerError(e.Message);
             }
         }
 
@@ -77,7 +78,7 @@ namespace ShowCaseAPI.WebApi.Controllers
                 var store = await _storeRepository.GetById(vm.StoreId);
                 if (store == null)
                 {
-                    BadRequest("Loja não encontrada");
+                    ResponseHelper.BadRequest("Loja não encontrada");
                 }
 
                 if (vm.SKU != null)
@@ -86,9 +87,8 @@ namespace ShowCaseAPI.WebApi.Controllers
                     var existSKU = products.Any(x => x.SKU != null && x.SKU.ToUpper() == vm.SKU.ToUpper());
                     if (existSKU)
                     {
-                        return BadRequest("Você já tem um produto com esse código SKU registrado para esta loja!");
+                        return ResponseHelper.BadRequest("Você já tem um produto com esse código SKU registrado para esta loja!");
                     }
-
                 }
 
                 var product = new StoreProduct()
@@ -102,13 +102,13 @@ namespace ShowCaseAPI.WebApi.Controllers
                 var result = await _storeProductRepository.Insert(product);
                 if (result > 0)
                 {
-                    return Ok("Producto criado com sucesso!");
+                    return ResponseHelper.Success();
                 }
-                return BadRequest("Ocorreu um erro durante a criação do produto.");
+                return ResponseHelper.BadRequest();
             }
             catch (Exception e)
             {
-                return StatusCode((int)HttpStatusCode.BadRequest, e.Message);
+                return ResponseHelper.InternalServerError(e.Message);
             }
         }
 
@@ -120,7 +120,7 @@ namespace ShowCaseAPI.WebApi.Controllers
                 var product = await _storeProductRepository.GetById(vm.Id);
                 if (product == null)
                 {
-                    return BadRequest("Nenhum produto encontrado!");
+                    return ResponseHelper.BadRequest("Nenhum produto encontrado!");
                 };
 
                 if (vm.SKU != null)
@@ -129,7 +129,7 @@ namespace ShowCaseAPI.WebApi.Controllers
                     var existSKU = products.Where(x => x.Id != product.Id).Any(x => x.SKU != null && x.SKU.ToUpper() == vm.SKU.ToUpper());
                     if (existSKU)
                     {
-                        return BadRequest("Você já tem um produto com esse código SKU registrado para esta loja!");
+                        return ResponseHelper.BadRequest("Você já tem um produto com esse código SKU registrado para esta loja!");
                     }
                 }
 
@@ -140,13 +140,13 @@ namespace ShowCaseAPI.WebApi.Controllers
                 var result = await _storeProductRepository.Update(product);
                 if (result > 0)
                 {
-                    return Ok("Produto atualizado com sucesso!");
+                    return ResponseHelper.Success();
                 }
-                return BadRequest("Ocorreu um erro durante a atualização do produto.");
+                return BadRequest();
             }
             catch (Exception e)
             {
-                return StatusCode((int)HttpStatusCode.BadRequest, e.Message);
+                return ResponseHelper.InternalServerError(e.Message);
             }
         }
 
@@ -158,20 +158,20 @@ namespace ShowCaseAPI.WebApi.Controllers
                 var product = await _storeProductRepository.GetById(id);
                 if (product == null)
                 {
-                    return BadRequest("Nenhum produto encontrado!");
+                    return ResponseHelper.BadRequest("Nenhum produto encontrado!");
                 };
 
                 var result = await _storeProductRepository.Delete(id);
                 if (result > 0)
                 {
-                    return Ok("Produto excluido com sucesso!");
+                    return ResponseHelper.Success();
                 }
 
-                return BadRequest("Ocorreu um erro durante a exclusão do produto.");
+                return ResponseHelper.BadRequest();
             }
             catch (Exception e)
             {
-                return StatusCode((int)HttpStatusCode.BadRequest, e.Message);
+                return ResponseHelper.InternalServerError(e.Message);
             }
         }
     }

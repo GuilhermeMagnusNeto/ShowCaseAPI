@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using ShowCaseAPI.Domain.Entities;
 using ShowCaseAPI.Repositories.Interface;
+using ShowCaseAPI.WebApi.Helper;
 using ShowCaseAPI.WebApi.Model.Product;
 using ShowCaseAPI.WebApi.Model.Showcase;
 using ShowCaseAPI.WebApi.Model.Store;
@@ -33,10 +34,10 @@ namespace ShowCaseAPI.WebApi.Controllers
                 var result = await _showcaseRepository.GetById(id);
                 if (result == null)
                 {
-                    return NotFound("Nenhum produto encontrado!");
+                    return ResponseHelper.BadRequest("Nenhum produto encontrado!");
                 }
 
-                return Ok(new ShowcaseViewModel
+                return ResponseHelper.Success(new ShowcaseViewModel
                 {
                     Id = result.Id,
                     ExclusiveCode = result.ExclusiveCode,
@@ -46,7 +47,7 @@ namespace ShowCaseAPI.WebApi.Controllers
             }
             catch (Exception e)
             {
-                return StatusCode((int)HttpStatusCode.BadRequest, e.Message);
+                return ResponseHelper.InternalServerError(e.Message);
             }
         }
 
@@ -62,11 +63,11 @@ namespace ShowCaseAPI.WebApi.Controllers
                     Name = x.Name,
                     StoreId = x.StoreId
                 }).ToList();
-                return Ok(result);
+                return ResponseHelper.Success(result);
             }
             catch (Exception e)
             {
-                return StatusCode((int)HttpStatusCode.BadRequest, e.Message);
+                return ResponseHelper.InternalServerError(e.Message);
             }
         }
 
@@ -78,7 +79,7 @@ namespace ShowCaseAPI.WebApi.Controllers
                 var store = await _storeRepository.GetById(vm.StoreId);
                 if (store == null)
                 {
-                    BadRequest("Loja não encontrada");
+                    ResponseHelper.BadRequest("Loja não encontrada");
                 }
 
                 var exclusiveCode = await _showcaseRepository.GenerateExclusiveCode();
@@ -92,13 +93,14 @@ namespace ShowCaseAPI.WebApi.Controllers
                 var result = await _showcaseRepository.Insert(showcase);
                 if (result > 0)
                 {
-                    return Ok("Vitrine criada com sucesso!");
+                    ResponseHelper.Success();
                 }
-                return BadRequest("Ocorreu um erro durante a criação da vitrine.");
+
+                return ResponseHelper.BadRequest();
             }
             catch (Exception e)
             {
-                return StatusCode((int)HttpStatusCode.BadRequest, e.Message);
+                return ResponseHelper.InternalServerError(e.Message);
             }
         }
 
@@ -110,7 +112,7 @@ namespace ShowCaseAPI.WebApi.Controllers
                 var showcase = await _showcaseRepository.GetById(vm.Id);
                 if (showcase == null)
                 {
-                    return BadRequest("Nenhuma vitrine encontrado!");
+                    return ResponseHelper.BadRequest("Nenhuma vitrine encontrado!");
                 };
 
                 showcase.Name = vm.Name;
@@ -118,13 +120,13 @@ namespace ShowCaseAPI.WebApi.Controllers
                 var result = await _showcaseRepository.Update(showcase);
                 if (result > 0)
                 {
-                    return Ok("Vitrine atualizado com sucesso!");
+                    return ResponseHelper.Success();
                 }
-                return BadRequest("Ocorreu um erro durante a atualização da vitrine.");
+                return ResponseHelper.BadRequest();
             }
             catch (Exception e)
             {
-                return StatusCode((int)HttpStatusCode.BadRequest, e.Message);
+                return ResponseHelper.InternalServerError(e.Message);
             }
         }
 
@@ -136,7 +138,7 @@ namespace ShowCaseAPI.WebApi.Controllers
                 var showcase = await _showcaseRepository.GetById(id);
                 if (showcase == null)
                 {
-                    return BadRequest("Nenhuma vitrine encontrado!");
+                    return ResponseHelper.BadRequest("Nenhuma vitrine encontrado!");
                 };
 
                 var style = _showcaseStyleRepository.Query().FirstOrDefault(x => !x.Deleted && x.ShowcaseId == id);
@@ -145,21 +147,21 @@ namespace ShowCaseAPI.WebApi.Controllers
                     var resultStyle = await _showcaseStyleRepository.Delete(style.Id);
                     if (resultStyle <= 0)
                     {
-                        return BadRequest("Ocorreu um erro durante a exclusão do style da vitrine.");
+                        return ResponseHelper.BadRequest("Ocorreu um erro durante a exclusão do style da vitrine.");
                     }
                 }
 
                 var resultShowcase = await _showcaseRepository.Delete(id);
                 if (resultShowcase <= 0)
                 {
-                    return BadRequest("Ocorreu um erro durante a exclusão da vitrine.");
+                    return ResponseHelper.BadRequest("Ocorreu um erro durante a exclusão da vitrine.");
                 }
 
-                return Ok("Vitrine excluida com sucesso!");
+                return ResponseHelper.Success();
             }
             catch (Exception e)
             {
-                return StatusCode((int)HttpStatusCode.BadRequest, e.Message);
+                return ResponseHelper.InternalServerError(e.Message);
             }
         }
     }
