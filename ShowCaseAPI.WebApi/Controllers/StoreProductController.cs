@@ -113,7 +113,7 @@ namespace ShowCaseAPI.WebApi.Controllers
         }
 
         [HttpPut("EditProduct")]
-        public async Task<IActionResult> PutAsync(PutProductViewModel vm)
+        public async Task<IActionResult> PutAsync([FromBody] PutProductViewModel vm)
         {
             try
             {
@@ -160,14 +160,14 @@ namespace ShowCaseAPI.WebApi.Controllers
                 {
                     return BadRequest("Nenhum produto encontrado!");
                 };
-                               
-                var resultProduct = await _storeProductRepository.Delete(id);
-                if (resultProduct <= 0)
+
+                var result = await _storeProductRepository.Delete(id);
+                if (result > 0)
                 {
-                    return BadRequest("Ocorreu um erro durante a exclusão do produto.");
+                    return Ok("Produto excluido com sucesso!");
                 }
 
-                return Ok("Produto excluido com sucesso!");
+                return BadRequest("Ocorreu um erro durante a exclusão do produto.");
             }
             catch (Exception e)
             {

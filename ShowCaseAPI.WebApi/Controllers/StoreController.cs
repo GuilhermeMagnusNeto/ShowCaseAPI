@@ -4,6 +4,7 @@ using Microsoft.VisualBasic;
 using ShowCaseAPI.Domain.Entities;
 using ShowCaseAPI.Repositories.Interface;
 using ShowCaseAPI.Repositories.Repository;
+using ShowCaseAPI.WebApi.Model.Showcase;
 using ShowCaseAPI.WebApi.Model.Store;
 using ShowCaseAPI.WebApi.Model.User;
 using System.Net;
@@ -35,7 +36,11 @@ namespace ShowCaseAPI.WebApi.Controllers
                 {
                     return NotFound("Nenhuma loja encontrado!");
                 }
-                return Ok(result);
+                return Ok(new StoreViewModel
+                {
+                    Name = result.Name,
+                    StoreLogo = result.StoreLogo
+                });
             }
             catch (Exception e)
             {
@@ -59,10 +64,14 @@ namespace ShowCaseAPI.WebApi.Controllers
                     return BadRequest("Você já tem uma loja com esse nome!");
                 }
 
+
+                //TODO:  StoreLogo = gerar url
+
+
                 var store = new Store()
                 {
                     Name = vm.Name,
-                    //TODO:  StoreLogo = gerar url
+                    //StoreLogo = 
                     UserId = user.Id
                 };
                 var result = await _storeRepository.Insert(store);
@@ -70,7 +79,7 @@ namespace ShowCaseAPI.WebApi.Controllers
                 {
                     return Ok("Loja criada com sucesso!");
                 }
-                return BadRequest("Ocorreu um erro durante a criação da loja!.");
+                return BadRequest("Ocorreu um erro durante a criação da loja!");
             }
             catch (Exception e)
             {
@@ -79,7 +88,7 @@ namespace ShowCaseAPI.WebApi.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> PutAsync(PutStoreViewModel vm)
+        public async Task<IActionResult> PutAsync([FromBody] PutStoreViewModel vm)
         {
             try
             {
@@ -100,8 +109,12 @@ namespace ShowCaseAPI.WebApi.Controllers
                     return BadRequest("Você já tem uma loja com esse nome!");
                 }
 
+
+                //TODO:  StoreLogo = gerar url
+
+
                 store.Name = vm.Name;
-                //TODO: store.StoreLogo =
+                //store.StoreLogo =
 
                 var result = await _storeRepository.Update(store);
                 if (result > 0)

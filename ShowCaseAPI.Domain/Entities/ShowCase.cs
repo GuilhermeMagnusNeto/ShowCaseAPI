@@ -14,8 +14,8 @@ namespace ShowCaseAPI.Domain.Entities
     [Table(name: "showcases")]
     public class Showcase : Entity
     {
-        [Column("EXCLUSIVE_URL")]
-        public string ExclusiveURL { get; set; }
+        [Column("EXCLUSIVE_CODE")]
+        public string ExclusiveCode { get; set; }
 
         [Column("NAME")]
         public string Name { get; set; }
@@ -33,8 +33,8 @@ namespace ShowCaseAPI.Domain.Entities
             self.Property(x => x.Id).IsRequired();
             self.Property(x => x.Deleted).HasDefaultValue(false);
 
-            self.HasIndex(x => x.ExclusiveURL).IsUnique();
-            self.Property(x => x.ExclusiveURL).IsRequired();
+            self.HasIndex(x => x.ExclusiveCode).IsUnique();
+            self.Property(x => x.ExclusiveCode).IsRequired();
             self.Property(x => x.StoreId).IsRequired();
             self.Property(x => x.Name).IsRequired();
 
