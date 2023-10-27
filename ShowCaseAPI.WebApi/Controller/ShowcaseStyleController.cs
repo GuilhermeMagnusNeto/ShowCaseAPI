@@ -8,6 +8,7 @@ using ShowCaseAPI.WebApi.Model.Product;
 using ShowCaseAPI.WebApi.Model.Showcase;
 using ShowCaseAPI.WebApi.Model.ShowcaseStyle;
 using ShowCaseAPI.WebApi.Model.Store;
+using ShowCaseAPI.WebApi.Model.Template;
 using ShowCaseAPI.WebApi.Model.User;
 using System.Net;
 
@@ -54,7 +55,26 @@ namespace ShowCaseAPI.WebApi.Controllers
                 return ResponseHelper.InternalServerError(e.Message);
             }
         }
-     
+
+        [HttpGet("GetAllTemplates")]
+        public async Task<IActionResult> GetAllTemplates()
+        {
+            try
+            {
+                var result = (await _templateRepository.GetAll()).Select(x => new TemplateViewModel
+                {
+                    Id = x.Id,
+                    Name = x.Name
+                }).ToList();
+
+                return ResponseHelper.Success(result);
+            }
+            catch (Exception e)
+            {
+                return ResponseHelper.InternalServerError(e.Message);
+            }
+        }
+
 
         [HttpPost]
         public async Task<IActionResult> PostAsync([FromBody] PostShowcaseStyleViewModel vm)

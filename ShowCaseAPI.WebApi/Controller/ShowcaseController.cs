@@ -79,7 +79,13 @@ namespace ShowCaseAPI.WebApi.Controllers
                 var store = await _storeRepository.GetById(vm.StoreId);
                 if (store == null)
                 {
-                    ResponseHelper.BadRequest("Loja não encontrada");
+                    return ResponseHelper.BadRequest("Loja não encontrada");
+                }                
+
+                var existeName = _showcaseRepository.Query().Where(x => x.StoreId == store.Id).Any(x => x.Name.ToUpper() == vm.Name.ToUpper());
+                if (existeName)
+                {
+                    return ResponseHelper.BadRequest("Você já tem uma vitrine com esse nome!");
                 }
 
                 var exclusiveCode = await _showcaseRepository.GenerateExclusiveCode();
@@ -93,7 +99,7 @@ namespace ShowCaseAPI.WebApi.Controllers
                 var result = await _showcaseRepository.Insert(showcase);
                 if (result > 0)
                 {
-                    ResponseHelper.Success();
+                    return ResponseHelper.Success();
                 }
 
                 return ResponseHelper.BadRequest();
