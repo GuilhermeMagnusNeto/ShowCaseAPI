@@ -129,7 +129,7 @@ namespace ShowCaseAPI.WebApi.Controllers
                 {
                     return ResponseHelper.BadRequest("Usuário não encontrado!");
                 }
-                var existeName = _storeRepository.Query().Where(x => !x.Deleted && x.UserId == user.Id).Any(x => x.Name.ToUpper() == vm.Name.ToUpper());
+                var existeName = _storeRepository.Query().Where(x => !x.Deleted && x.UserId == user.Id && x.Id != store.Id).Any(x => x.Name.ToUpper() == vm.Name.ToUpper());
                 if (existeName)
                 {
                     return ResponseHelper.BadRequest("Você já tem uma loja com esse nome!");

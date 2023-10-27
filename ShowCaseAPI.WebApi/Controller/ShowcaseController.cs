@@ -121,7 +121,7 @@ namespace ShowCaseAPI.WebApi.Controllers
                     return ResponseHelper.BadRequest("Nenhuma vitrine encontrado!");
                 };
 
-                var existeName = _showcaseRepository.Query().Where(x => !x.Deleted && x.StoreId == showcase.StoreId).Any(x => x.Name.ToUpper() == vm.Name.ToUpper());
+                var existeName = _showcaseRepository.Query().Where(x => !x.Deleted && x.StoreId == showcase.StoreId && x.Id != showcase.Id).Any(x => x.Name.ToUpper() == vm.Name.ToUpper());
                 if (existeName)
                 {
                     return ResponseHelper.BadRequest("Você já tem uma vitrine com esse nome!");
