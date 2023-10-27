@@ -16,10 +16,12 @@ namespace ShowCaseAPI.WebApi.Controllers
     {
         private readonly IShowcaseRepository _showcaseRepository;
         private readonly IStoreRepository _storeRepository;
-        public ShowcaseController(IShowcaseRepository showcaseRepository, IStoreRepository storeRepository)
+        private readonly IShowcaseStyleRepository _showcaseStyleRepository;
+        public ShowcaseController(IShowcaseRepository showcaseRepository, IStoreRepository storeRepository, IShowcaseStyleRepository showcaseStyleRepository)
         {
             _showcaseRepository = showcaseRepository;
             _storeRepository = storeRepository;
+            _showcaseStyleRepository = showcaseStyleRepository;
         }
 
 
@@ -137,13 +139,23 @@ namespace ShowCaseAPI.WebApi.Controllers
                     return BadRequest("Nenhuma vitrine encontrado!");
                 };
 
-                var result = await _showcaseRepository.Delete(id);
-                if (result > 0)
+                var style = _showcaseStyleRepository.Query().FirstOrDefault(x => !x.Deleted && x.ShowcaseId == id);
+                if (style != null)
                 {
-                    return Ok("Vitrine excluida com sucesso!");
+                    var resultStyle = await _showcaseStyleRepository.Delete(style.Id);
+                    if (resultStyle <= 0)
+                    {
+                        return BadRequest("Ocorreu um erro durante a exclusão do style da vitrine.");
+                    }
                 }
 
-                return BadRequest("Ocorreu um erro durante a exclusão da vitrine.");
+                var resultShowcase = await _showcaseRepository.Delete(id);
+                if (resultShowcase <= 0)
+                {
+                    return BadRequest("Ocorreu um erro durante a exclusão da vitrine.");
+                }
+
+                return Ok("Vitrine excluida com sucesso!");
             }
             catch (Exception e)
             {

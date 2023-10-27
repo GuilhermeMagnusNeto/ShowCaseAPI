@@ -29,7 +29,10 @@ namespace ShowCaseAPI.WebApi.Controllers
         {
             try
             {
-                //TODO: VALIDAÇÃO FORMATO EMAIL
+                if (vm.Email.IsEmail())
+                {
+                    return BadRequest("Formato de email incorreto!");
+                }
                 var hash = vm.Password.CreatePasswordHash();
                 var user = new User
                 {
@@ -77,19 +80,20 @@ namespace ShowCaseAPI.WebApi.Controllers
             }
         }
 
+        /// <summary>
+        /// FOR TEST!
+        /// </summary>
+        /// <returns></returns>
         [HttpPost("ForgotPassword")]
         public async Task<IActionResult> ForgotPassword([FromBody] ForgotPasswordViewModel vm)
         {
             try
             {
                 var user = await _userRepository.GetByEmail(vm.Email);
-                if (user == null)// || !user.EmailConfirmed)
+                if (user == null)
                 {
                     return BadRequest("Email não encontrado ou confirmado!");
                 }
-
-                //TODO: Fazer reset correto de senha!
-                //var codeReset = await _userRepository.GetByEmail(user);
 
                 var hash = vm.NewPassword.CreatePasswordHash();
 
@@ -104,6 +108,35 @@ namespace ShowCaseAPI.WebApi.Controllers
                 return StatusCode((int)HttpStatusCode.BadRequest, e.Message);
             }
         }
+
+
+        //[HttpPost("ForgotPassword")]
+        //public async Task<IActionResult> ForgotPassword([FromBody] ForgotPasswordViewModel vm)
+        //{
+        //    try
+        //    {
+        //        var user = await _userRepository.GetByEmail(vm.Email);
+        //        if (user == null)// || !user.EmailConfirmed)
+        //        {
+        //            return BadRequest("Email não encontrado ou confirmado!");
+        //        }
+
+        //        //TODO: Fazer reset correto de senha!
+        //        //var codeReset = await _userRepository.GetByEmail(user);
+
+        //        var hash = vm.NewPassword.CreatePasswordHash();
+
+        //        user.PasswordHash = hash.PasswordHash;
+        //        user.PasswordSalt = hash.PasswordSalt;
+
+        //        var result = await _userRepository.Update(user);
+        //        return Ok("Senha alterada com sucesso!");
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        return StatusCode((int)HttpStatusCode.BadRequest, e.Message);
+        //    }
+        //}
 
 
         #region _FUNCTIONS

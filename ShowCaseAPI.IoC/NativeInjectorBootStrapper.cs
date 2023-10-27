@@ -16,6 +16,8 @@ namespace ShowCaseAPI.IoC
             services.AddScoped<IStoreRepository, StoreRepository>();
             services.AddScoped<IStoreProductRepository, StoreProductRepository>();
             services.AddScoped<IShowcaseRepository, ShowcaseRepository>();
+            services.AddScoped<IShowcaseStyleRepository, ShowcaseStyleRepository>();
+            services.AddScoped<ITemplateRepository, TemplateRepository>();
         }
     }
 }
