@@ -6,9 +6,9 @@ using ShowCaseAPI.Repositories.Interface;
 
 namespace ShowCaseAPI.Repositories.Repository
 {
-    public class ProductRepository : BaseRepository<Product>, IProductRepository
+    public class StoreRepository : BaseRepository<Store>, IStoreRepository
     {
-        public ProductRepository(ApplicationDbContext dbContext) : base(dbContext)
+        public StoreRepository(ApplicationDbContext dbContext) : base(dbContext)
         {
         }
     }

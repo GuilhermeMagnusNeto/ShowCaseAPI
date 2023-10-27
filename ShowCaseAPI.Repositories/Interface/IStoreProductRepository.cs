@@ -8,7 +8,8 @@ using System.Threading.Tasks;
 
 namespace ShowCaseAPI.Repositories.Interface
 {
-    public interface IProductRepository : IBaseRepository<Product>
+    public interface IStoreProductRepository : IBaseRepository<StoreProduct>
     {
+        Task<IQueryable<StoreProduct>> GetProductsByStoreId(Guid storeId);
     }
 }

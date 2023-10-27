@@ -1,10 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
-using ShowCaseAPI.Domain.Entities;
+﻿using ShowCaseAPI.Domain.Entities;
 using ShowCaseAPI.Infra.Context.CrossCutting.Identity.Data;
 using ShowCaseAPI.Repositories.Base;
 using ShowCaseAPI.Repositories.Interface;
-using System.Runtime.InteropServices.ObjectiveC;
-using System.Security.Cryptography;
 
 namespace ShowCaseAPI.Repositories.Repository
 {
@@ -18,12 +15,8 @@ namespace ShowCaseAPI.Repositories.Repository
 
         public async Task<User> GetByEmail(string email)
         {
-            var teste = (email.ToUpper());
-            var todosusuarios = _dbContext.Users.ToList();
-            var resultado = _dbContext.Users.FirstOrDefault(u => u.Email.ToUpper().Equals(email.ToUpper()));
-
-
-            return _dbContext.Users.FirstOrDefault(u => u.Email.ToUpper().Equals(email.ToUpper()));
+            var result = _dbContext.Users.FirstOrDefault(u => u.Email.ToUpper().Equals(email.ToUpper()));
+            return result;
         }
     }
 }

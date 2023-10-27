@@ -15,10 +15,9 @@ namespace ShowCaseAPI.Infra.Context.CrossCutting.Identity.Data
         public DbSet<Store> Stores { get; set; }
         public DbSet<Template> Templates { get; set; }
         public DbSet<ShowcaseStyle> ShowcaseStyles { get; set; }
-        public DbSet<Product> Products { get; set; }
         public DbSet<StoreProduct> StoreProducts { get; set; }
 
-
+        //TODO: RODAR MIGRATION
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //Entities configurations
@@ -27,7 +26,6 @@ namespace ShowCaseAPI.Infra.Context.CrossCutting.Identity.Data
             modelBuilder.Entity<Store>().ConfigureUnique(modelBuilder);
             modelBuilder.Entity<Template>().ConfigureUnique(modelBuilder);
             modelBuilder.Entity<ShowcaseStyle>().ConfigureUnique(modelBuilder);
-            modelBuilder.Entity<Product>().ConfigureUnique(modelBuilder);
             modelBuilder.Entity<StoreProduct>().ConfigureUnique(modelBuilder);
 
 

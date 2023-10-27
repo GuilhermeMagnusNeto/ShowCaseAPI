@@ -14,5 +14,6 @@ namespace ShowCaseAPI.Repositories.Base
         Task<int> Delete(Guid id);
         Task<IEnumerable<T>> GetAll();
         Task<T> GetById(Guid id);
+        IQueryable<T> Query();
     }
 }

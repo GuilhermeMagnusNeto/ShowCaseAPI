@@ -18,9 +18,18 @@ namespace ShowCaseAPI.Domain.Entities
         public Guid StoreId { get; set; }
         public virtual Store Store { get; set; }
 
-        [Column("PRODUCT_ID")]
-        public Guid ProductId { get; set; }
-        public virtual Product Product { get; set; }
+        [Column("NAME")]
+        public string Name { get; set; }
+
+        [Column("VALUE")]
+        public double? Value { get; set; }
+
+        /// <summary> Stock Keeping Unit </summary>
+        [Column("SKU")]
+        public string? SKU { get; set; }
+
+        [Column("PRODUCT_PICTURE")]
+        public string? ProductPicture { get; set; }
     }
 
     public static class StoreProductDbBuilder
@@ -32,7 +41,7 @@ namespace ShowCaseAPI.Domain.Entities
             self.Property(x => x.Deleted).HasDefaultValue(false);
 
             self.Property(x => x.StoreId).IsRequired();
-            self.Property(x => x.ProductId).IsRequired();
+            self.Property(x => x.Name).IsRequired();
 
             return self;
         }

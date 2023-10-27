@@ -33,7 +33,7 @@ namespace ShowCaseAPI.Domain.Entities
             self.Property(x => x.Id).IsRequired();
             self.Property(x => x.Deleted).HasDefaultValue(false);
 
-            self.HasIndex(x => x.Name).IsUnique();
+            self.Property(x => x.Name).IsRequired();
             self.Property(x => x.UserId).IsRequired();
 
             return self;

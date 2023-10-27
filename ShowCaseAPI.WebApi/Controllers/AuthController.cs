@@ -1,18 +1,13 @@
 ﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using ShowCaseAPI.Domain.Entities;
 using ShowCaseAPI.Repositories.Extension;
 using ShowCaseAPI.Repositories.Interface;
-using ShowCaseAPI.Repositories.Repository;
-using ShowCaseAPI.WebApi.Model.Product;
 using ShowCaseAPI.WebApi.Model.User;
 using System.IdentityModel.Tokens.Jwt;
 using System.Net;
 using System.Security.Claims;
-using System.Security.Cryptography;
-using System.Text;
 
 namespace ShowCaseAPI.WebApi.Controllers
 {
@@ -30,7 +25,7 @@ namespace ShowCaseAPI.WebApi.Controllers
         }
 
         [HttpPost("Register")]
-        public async Task<IActionResult> RegisterNewUser(NewUserViewModel vm)
+        public async Task<IActionResult> RegisterNewUser([FromBody] NewUserViewModel vm)
         {
             try
             {
@@ -58,7 +53,7 @@ namespace ShowCaseAPI.WebApi.Controllers
         }
 
         [HttpPost("Login")]
-        public async Task<IActionResult> Login(LoginUserViewModel vm)
+        public async Task<IActionResult> Login([FromBody] LoginUserViewModel vm)
         {
             try
             {
@@ -82,18 +77,45 @@ namespace ShowCaseAPI.WebApi.Controllers
             }
         }
 
+        [HttpPost("ForgotPassword")]
+        public async Task<IActionResult> ForgotPassword([FromBody] ForgotPasswordViewModel vm)
+        {
+            try
+            {
+                var user = await _userRepository.GetByEmail(vm.Email);
+                if (user == null)// || !user.EmailConfirmed)
+                {
+                    return BadRequest("Email não encontrado ou confirmado!");
+                }
+
+                //TODO: Fazer reset correto de senha!
+                //var codeReset = await _userRepository.GetByEmail(user);
+
+                var hash = vm.NewPassword.CreatePasswordHash();
+
+                user.PasswordHash = hash.PasswordHash;
+                user.PasswordSalt = hash.PasswordSalt;
+
+                var result = await _userRepository.Update(user);
+                return Ok("Senha alterada com sucesso!");
+            }
+            catch (Exception e)
+            {
+                return StatusCode((int)HttpStatusCode.BadRequest, e.Message);
+            }
+        }
 
 
         #region _FUNCTIONS
         private string CreateToken(User user)
         {
-            
+
             List<Claim> claims = new List<Claim>
             {
                 new Claim(ClaimTypes.Name, user.Email)
             };
 
-            var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(_configuration.GetSection("AppSettings:Token").Value));        
+            var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(_configuration.GetSection("AppSettings:Token").Value));
             var cred = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
             var token = new JwtSecurityToken(
                 claims: claims,

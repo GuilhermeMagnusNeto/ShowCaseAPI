@@ -50,5 +50,10 @@ namespace ShowCaseAPI.Repositories.Base
             _dbContext.Set<T>().Update(entity);
             return _dbContext.SaveChanges();
         }
+
+        public IQueryable<T> Query()
+        {
+            return _dbContext.Set<T>().AsNoTracking().Where(_ => !_.Deleted);
+        }
     }
 }
