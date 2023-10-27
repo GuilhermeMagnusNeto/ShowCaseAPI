@@ -43,7 +43,6 @@ namespace ShowCaseAPI.WebApi.Controllers
                 var hash = vm.Password.CreatePasswordHash();
                 var user = new User
                 {
-                    Name = vm.Name,
                     PasswordHash = hash.PasswordHash,
                     PasswordSalt = hash.PasswordSalt,
                     Email = vm.Email.ToUpper()
@@ -83,7 +82,6 @@ namespace ShowCaseAPI.WebApi.Controllers
                 return ResponseHelper.Success(new UserViewModel
                 {
                     Id = user.Id,
-                    Name = user.Name,
                     Email = user.Email,
                     Token = token
                 });

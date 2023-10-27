@@ -14,9 +14,6 @@ namespace ShowCaseAPI.Domain.Entities
     [Table(name: "users")]
     public class User : Entity
     {
-        [Column("NAME")]
-        public string Name { get; set; }
-
         [Column("PASSWORD_HASH")]
         public string PasswordHash { get; set; }
 
@@ -42,7 +39,6 @@ namespace ShowCaseAPI.Domain.Entities
 
             self.HasIndex(x => x.Email).IsUnique();
             self.Property(x => x.EmailConfirmed).HasDefaultValue(false);
-            self.Property(x => x.Name).IsRequired();
             self.Property(x => x.PasswordHash).IsRequired();
             self.Property(x => x.PasswordSalt).IsRequired();
             self.Property(x => x.Email).IsRequired();
