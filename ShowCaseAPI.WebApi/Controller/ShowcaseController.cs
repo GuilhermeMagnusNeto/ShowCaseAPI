@@ -26,7 +26,7 @@ namespace ShowCaseAPI.WebApi.Controllers
         }
 
 
-        [HttpGet("GetShowcaseById/{id}")]
+        [HttpGet("GetById/{id}")]
         public async Task<IActionResult> GetByIdAsync(Guid id)
         {
             try

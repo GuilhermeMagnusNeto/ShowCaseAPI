@@ -29,7 +29,7 @@ namespace ShowCaseAPI.WebApi.Controllers
             _templateRepository = templateRepository;
         }
 
-        [HttpGet("GetStyleByShowcaseId/{id}")]
+        [HttpGet("GetStyleByShowcaseId/{showCaseId}")]
         public async Task<IActionResult> GetByIdAsync(Guid id)
         {
             try

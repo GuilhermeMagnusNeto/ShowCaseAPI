@@ -32,7 +32,7 @@ namespace ShowCaseAPI.WebApi.Controllers
         {
             try
             {
-                if (vm.Email.IsEmail())
+                if (!vm.Email.IsEmail())
                 {
                     return ResponseHelper.BadRequest("Formato de email incorreto!");
                 }

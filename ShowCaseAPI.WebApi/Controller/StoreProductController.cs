@@ -23,7 +23,7 @@ namespace ShowCaseAPI.WebApi.Controllers
         }
 
 
-        [HttpGet("GetProductById/{id}")]
+        [HttpGet("GetProductById/{productId}")]
         public async Task<IActionResult> GetByIdAsync(Guid id)
         {
             try
@@ -150,7 +150,7 @@ namespace ShowCaseAPI.WebApi.Controllers
             }
         }
 
-        [HttpDelete("DeleteProduct/{id}")]
+        [HttpDelete("DeleteProduct/{productId}")]
         public async Task<IActionResult> DeleteAsync(Guid id)
         {
             try
