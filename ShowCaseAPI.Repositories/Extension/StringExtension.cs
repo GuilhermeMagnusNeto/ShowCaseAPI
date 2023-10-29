@@ -15,7 +15,7 @@ namespace ShowCaseAPI.Repositories.Extension
     {
         public static bool IsEmail(this string value)
         {
-            const string pattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
+            const string pattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
             return Regex.IsMatch(value, pattern);
         }
     }

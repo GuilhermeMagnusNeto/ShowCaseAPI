@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
+using Newtonsoft.Json.Linq;
 using ShowCaseAPI.Domain.Entities;
 using ShowCaseAPI.Repositories.Extension;
 using ShowCaseAPI.Repositories.Interface;
@@ -51,7 +52,13 @@ namespace ShowCaseAPI.WebApi.Controllers
                 var result = await _userRepository.Insert(user);
                 if (result > 0)
                 {
-                    return ResponseHelper.Success();
+                    string token = CreateToken(user);
+                    return ResponseHelper.Success(new UserViewModel
+                    {
+                        Id = user.Id,
+                        Email = user.Email,
+                        Token = token
+                    });
                 }
 
                 return ResponseHelper.BadRequest();
