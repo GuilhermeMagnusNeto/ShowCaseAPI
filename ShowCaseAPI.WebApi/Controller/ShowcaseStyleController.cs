@@ -106,7 +106,7 @@ namespace ShowCaseAPI.WebApi.Controllers
                     {
                         Id = style.Id,
                         TemplateId = style.TemplateId,
-                        TemplateName = style.Template.Name,
+                        TemplateName = template.Name,
                         BackgroundColorCode = style.BackgroundColorCode,
                         ShowProductValue = style.ShowProductValue,
                         ShowStoreLogo = style.ShowStoreLogo

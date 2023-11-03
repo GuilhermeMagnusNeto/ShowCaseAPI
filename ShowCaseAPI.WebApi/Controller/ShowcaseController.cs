@@ -99,7 +99,13 @@ namespace ShowCaseAPI.WebApi.Controllers
                 var result = await _showcaseRepository.Insert(showcase);
                 if (result > 0)
                 {
-                    return ResponseHelper.Success();
+                    return ResponseHelper.Success(new ShowcaseViewModel
+                    {
+                        Id = showcase.Id,
+                        ExclusiveCode = showcase.ExclusiveCode,
+                        Name = showcase.Name,
+                        StoreId = showcase.StoreId
+                    });
                 }
 
                 return ResponseHelper.BadRequest();

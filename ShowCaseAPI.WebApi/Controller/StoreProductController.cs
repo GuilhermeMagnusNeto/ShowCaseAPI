@@ -151,17 +151,17 @@ namespace ShowCaseAPI.WebApi.Controllers
         }
 
         [HttpDelete("DeleteProduct/{productId}")]
-        public async Task<IActionResult> DeleteAsync(Guid id)
+        public async Task<IActionResult> DeleteAsync(Guid productId)
         {
             try
             {
-                var product = await _storeProductRepository.GetById(id);
+                var product = await _storeProductRepository.GetById(productId);
                 if (product == null)
                 {
                     return ResponseHelper.BadRequest("Nenhum produto encontrado!");
                 };
 
-                var result = await _storeProductRepository.Delete(id);
+                var result = await _storeProductRepository.Delete(productId);
                 if (result > 0)
                 {
                     return ResponseHelper.Success();
