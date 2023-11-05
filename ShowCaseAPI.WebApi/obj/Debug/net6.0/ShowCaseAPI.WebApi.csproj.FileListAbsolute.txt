@@ -192,3 +192,5 @@ D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.WebApi\obj\Debug\net6.0\refint\S
 D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.WebApi\obj\Debug\net6.0\ShowCaseAPI.WebApi.pdb
 D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.WebApi\obj\Debug\net6.0\ShowCaseAPI.WebApi.genruntimeconfig.cache
 D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.WebApi\obj\Debug\net6.0\ref\ShowCaseAPI.WebApi.dll
+C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.WebApi\bin\Debug\net6.0\ShowCaseAPI.IoC.dll
+C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.WebApi\bin\Debug\net6.0\ShowCaseAPI.IoC.pdb
