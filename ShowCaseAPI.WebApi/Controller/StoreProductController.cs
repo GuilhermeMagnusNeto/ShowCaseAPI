@@ -24,11 +24,11 @@ namespace ShowCaseAPI.WebApi.Controllers
 
 
         [HttpGet("GetProductById/{productId}")]
-        public async Task<IActionResult> GetByIdAsync(Guid id)
+        public async Task<IActionResult> GetByIdAsync(Guid productId)
         {
             try
             {
-                var result = await _storeProductRepository.GetById(id);
+                var result = await _storeProductRepository.GetById(productId);
                 if (result == null)
                 {
                     return ResponseHelper.BadRequest("Nenhum produto encontrado!");
@@ -40,7 +40,8 @@ namespace ShowCaseAPI.WebApi.Controllers
                     StoreId = result.StoreId,
                     Name = result.Name,
                     Value = result.Value,
-                    SKU = result.SKU
+                    SKU = result.SKU,
+                    Description = result.Description
                 });
             }
             catch (Exception e)
@@ -60,7 +61,8 @@ namespace ShowCaseAPI.WebApi.Controllers
                     StoreId = x.StoreId,
                     Name = x.Name,
                     Value = x.Value,
-                    SKU = x.SKU
+                    SKU = x.SKU,
+                    Description = x.Description
                 }).ToList();
                 return ResponseHelper.Success(result);
             }
@@ -96,7 +98,8 @@ namespace ShowCaseAPI.WebApi.Controllers
                     StoreId = vm.StoreId,
                     Name = vm.Name,
                     Value = vm.Value,
-                    SKU = vm.SKU
+                    SKU = vm.SKU,
+                    Description = vm.Description
                 };
 
                 var result = await _storeProductRepository.Insert(product);
@@ -117,7 +120,7 @@ namespace ShowCaseAPI.WebApi.Controllers
         {
             try
             {
-                var product = await _storeProductRepository.GetById(vm.Id);
+                var product = await _storeProductRepository.GetById(vm.ProductId);
                 if (product == null)
                 {
                     return ResponseHelper.BadRequest("Nenhum produto encontrado!");
@@ -135,6 +138,7 @@ namespace ShowCaseAPI.WebApi.Controllers
 
                 product.Name = vm.Name;
                 product.SKU = vm.SKU;
+                product.Description = vm.Description;
                 product.Value = vm.Value;
 
                 var result = await _storeProductRepository.Update(product);

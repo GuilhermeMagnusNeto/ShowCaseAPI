@@ -2,7 +2,7 @@
 {
     public class PutShowcaseStyleViewModel
     {
-        public Guid Id { get; set; }
+        public Guid ShowcaseStyleId { get; set; }
         public Guid TemplateId { get; set; }
         public string BackgroundColorCode { get; set; }
         public bool ShowProductValue { get; set; }

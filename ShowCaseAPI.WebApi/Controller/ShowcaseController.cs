@@ -18,20 +18,22 @@ namespace ShowCaseAPI.WebApi.Controllers
         private readonly IShowcaseRepository _showcaseRepository;
         private readonly IStoreRepository _storeRepository;
         private readonly IShowcaseStyleRepository _showcaseStyleRepository;
-        public ShowcaseController(IShowcaseRepository showcaseRepository, IStoreRepository storeRepository, IShowcaseStyleRepository showcaseStyleRepository)
+        private readonly IShowcaseProductRepository _showcaseProductRepository;
+        public ShowcaseController(IShowcaseRepository showcaseRepository, IStoreRepository storeRepository, IShowcaseStyleRepository showcaseStyleRepository, IShowcaseProductRepository showcaseProductRepository)
         {
             _showcaseRepository = showcaseRepository;
             _storeRepository = storeRepository;
             _showcaseStyleRepository = showcaseStyleRepository;
+            _showcaseProductRepository = showcaseProductRepository;
         }
 
 
-        [HttpGet("GetById/{id}")]
-        public async Task<IActionResult> GetByIdAsync(Guid id)
+        [HttpGet("GetById/{showcaseId}")]
+        public async Task<IActionResult> GetByIdAsync(Guid showcaseId)
         {
             try
             {
-                var result = await _showcaseRepository.GetById(id);
+                var result = await _showcaseRepository.GetById(showcaseId);
                 if (result == null)
                 {
                     return ResponseHelper.BadRequest("Nenhum produto encontrado!");
@@ -121,7 +123,7 @@ namespace ShowCaseAPI.WebApi.Controllers
         {
             try
             {
-                var showcase = await _showcaseRepository.GetById(vm.Id);
+                var showcase = await _showcaseRepository.GetById(vm.ShowcaseId);
                 if (showcase == null)
                 {
                     return ResponseHelper.BadRequest("Nenhuma vitrine encontrado!");
@@ -147,18 +149,18 @@ namespace ShowCaseAPI.WebApi.Controllers
             }
         }
 
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteAsync(Guid id)
+        [HttpDelete("{showcaseId}")]
+        public async Task<IActionResult> DeleteAsync(Guid showcaseId)
         {
             try
             {
-                var showcase = await _showcaseRepository.GetById(id);
+                var showcase = await _showcaseRepository.GetById(showcaseId);
                 if (showcase == null)
                 {
                     return ResponseHelper.BadRequest("Nenhuma vitrine encontrado!");
                 };
 
-                var style = _showcaseStyleRepository.Query().FirstOrDefault(x => !x.Deleted && x.ShowcaseId == id);
+                var style = _showcaseStyleRepository.Query().FirstOrDefault(x => !x.Deleted && x.ShowcaseId == showcaseId);
                 if (style != null)
                 {
                     var resultStyle = await _showcaseStyleRepository.Delete(style.Id);
@@ -168,7 +170,17 @@ namespace ShowCaseAPI.WebApi.Controllers
                     }
                 }
 
-                var resultShowcase = await _showcaseRepository.Delete(id);
+                var showcaseProducts = await _showcaseProductRepository.Query().Where(x => !x.Deleted && x.ShowcaseId == vm.ShowcaseId).ToList();
+                foreach (var product in showcaseProducts)
+                {
+                    var removed = await _showcaseProductRepository.Delete(product.Id);
+                    if (removed <= 0)
+                    {
+                        return ResponseHelper.BadRequest("Ocorreu um erro durante a exclusão dos produtos antigos.");
+                    }
+                }
+
+                var resultShowcase = await _showcaseRepository.Delete(showcaseId);
                 if (resultShowcase <= 0)
                 {
                     return ResponseHelper.BadRequest("Ocorreu um erro durante a exclusão da vitrine.");

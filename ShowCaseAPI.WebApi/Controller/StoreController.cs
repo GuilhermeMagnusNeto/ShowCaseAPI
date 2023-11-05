@@ -27,12 +27,12 @@ namespace ShowCaseAPI.WebApi.Controllers
         }
 
 
-        [HttpGet("GetById/{id}")]
-        public async Task<IActionResult> GetByIdAsync(Guid id)
+        [HttpGet("GetById/{storeId}")]
+        public async Task<IActionResult> GetByIdAsync(Guid storeId)
         {
             try
             {
-                var result = await _storeRepository.GetById(id);
+                var result = await _storeRepository.GetById(storeId);
                 if (result == null)
                 {
                     return ResponseHelper.BadRequest("Nenhuma loja encontrado!");
@@ -50,12 +50,12 @@ namespace ShowCaseAPI.WebApi.Controllers
             }
         }
 
-        [HttpGet("GetAllStoresByUserId/{id}")]
-        public async Task<IActionResult> GetAllStoresByUserId(Guid id)
+        [HttpGet("GetAllStoresByUserId/{storeId}")]
+        public async Task<IActionResult> GetAllStoresByUserId(Guid storeId)
         {
             try
             {
-                var result = _storeRepository.Query().Where(x => !x.Deleted && x.UserId == id).Select(x => new StoreViewModel
+                var result = _storeRepository.Query().Where(x => !x.Deleted && x.UserId == storeId).Select(x => new StoreViewModel
                 {
                     Id = x.Id,
                     Name = x.Name,
@@ -155,12 +155,12 @@ namespace ShowCaseAPI.WebApi.Controllers
             }
         }
 
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteAsync(Guid id)
+        [HttpDelete("{storeId}")]
+        public async Task<IActionResult> DeleteAsync(Guid storeId)
         {
             try
             {
-                var store = await _storeRepository.GetById(id);
+                var store = await _storeRepository.GetById(storeId);
                 if (store == null)
                 {
                     return ResponseHelper.BadRequest("Nenhuma loja encontrado!");
@@ -176,7 +176,7 @@ namespace ShowCaseAPI.WebApi.Controllers
                     }
                 }
 
-                var resultStore = await _storeRepository.Delete(id);
+                var resultStore = await _storeRepository.Delete(storeId);
                 if (resultStore <= 0)
                 {
                     return ResponseHelper.BadRequest("Ocorreu um erro durante a exclusão da loja.");

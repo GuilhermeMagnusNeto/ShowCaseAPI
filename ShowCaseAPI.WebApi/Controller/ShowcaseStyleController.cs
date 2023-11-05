@@ -1,16 +1,6 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore.Metadata.Conventions;
-using ShowCaseAPI.Domain.Entities;
-using ShowCaseAPI.Repositories.Interface;
-using ShowCaseAPI.WebApi.Helper;
-using ShowCaseAPI.WebApi.Model.Product;
-using ShowCaseAPI.WebApi.Model.Showcase;
+﻿using ShowCaseAPI.WebApi.Helper;
 using ShowCaseAPI.WebApi.Model.ShowcaseStyle;
-using ShowCaseAPI.WebApi.Model.Store;
 using ShowCaseAPI.WebApi.Model.Template;
-using ShowCaseAPI.WebApi.Model.User;
-using System.Net;
 
 namespace ShowCaseAPI.WebApi.Controllers
 {
@@ -30,21 +20,27 @@ namespace ShowCaseAPI.WebApi.Controllers
         }
 
         [HttpGet("GetStyleByShowcaseId/{showCaseId}")]
-        public async Task<IActionResult> GetByIdAsync(Guid id)
+        public async Task<IActionResult> GetByIdAsync(Guid showCaseId)
         {
             try
             {
-                var result = _showcaseStyleRepository.Query().FirstOrDefault(x => !x.Deleted && x.ShowcaseId == id);
+                var result = _showcaseStyleRepository.Query().FirstOrDefault(x => !x.Deleted && x.ShowcaseId == showCaseId);
                 if (result == null)
                 {
                     return ResponseHelper.BadRequest("Nenhum style encontrado!");
                 }
 
+                var template = await _templateRepository.GetById(result.TemplateId);
+                if (template == null)
+                {
+                    ResponseHelper.BadRequest("Template não encontrado");
+                }
+
                 return ResponseHelper.Success(new ShowcaseStyleViewModel
                 {
                     Id = result.Id,
-                    TemplateId= result.TemplateId,
-                    TemplateName = result.Template.Name,
+                    TemplateId= template.Id,
+                    TemplateName = template.Name,
                     BackgroundColorCode = result.BackgroundColorCode,
                     ShowProductValue = result.ShowProductValue,
                     ShowStoreLogo = result.ShowStoreLogo
@@ -105,7 +101,7 @@ namespace ShowCaseAPI.WebApi.Controllers
                     return ResponseHelper.Success(new ShowcaseStyleViewModel
                     {
                         Id = style.Id,
-                        TemplateId = style.TemplateId,
+                        TemplateId = template.Id,
                         TemplateName = template.Name,
                         BackgroundColorCode = style.BackgroundColorCode,
                         ShowProductValue = style.ShowProductValue,
@@ -125,7 +121,7 @@ namespace ShowCaseAPI.WebApi.Controllers
         {
             try
             {
-                var style = await _showcaseStyleRepository.GetById(vm.Id);
+                var style = await _showcaseStyleRepository.GetById(vm.ShowcaseStyleId);
                 if (style == null)
                 {
                     return ResponseHelper.BadRequest("Nenhum style encontrado!");
