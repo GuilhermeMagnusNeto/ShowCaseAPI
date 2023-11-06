@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "ignored": "true",
+      "type": "mssql"
+    },
+    "identityapp1": {
+      "ignored": "true",
+      "type": "identityapp"
+    }
+  }
+}
