@@ -119,7 +119,7 @@ namespace ShowCaseAPI.WebApi.Controllers
         {
             try
             {
-                var store = await _storeRepository.GetById(vm.Id);
+                var store = await _storeRepository.GetById(vm.storeId);
                 if (store == null)
                 {
                     return ResponseHelper.BadRequest("Nenhuma loja encontrado!");

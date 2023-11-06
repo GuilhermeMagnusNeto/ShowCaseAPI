@@ -18,9 +18,9 @@ namespace ShowCaseAPI.WebApi.Controllers
     {
         private readonly IShowcaseProductRepository _showcaseProductRepository;
         private readonly IShowcaseRepository _showcaseRepository;
-        public ShowcaseProductController(IShowcaseProductRepository showcaseProductRepositor, IShowcaseRepository showcaseRepository)
+        public ShowcaseProductController(IShowcaseProductRepository showcaseProductRepository, IShowcaseRepository showcaseRepository)
         {
-            _showcaseProductRepository = ShowcaseProductRepository;
+            _showcaseProductRepository = showcaseProductRepository;
             _showcaseRepository = showcaseRepository;
         }
 
@@ -32,9 +32,9 @@ namespace ShowCaseAPI.WebApi.Controllers
             {
                 var result = _showcaseProductRepository.Query().Where(x => !x.Deleted && x.ShowcaseId == showCaseId).Select(x => new ShowcaseProductViewModel
                 {
-                    Id = result.Id,
-                    ShowcaseId = result.ShowcaseId,
-                    StoreProductId = result.StoreProductId
+              
+                    ShowcaseId = x.ShowcaseId,
+                    StoreProductId = x.StoreProductId
                 }).ToList();
 
                 return ResponseHelper.Success(result);
@@ -57,11 +57,11 @@ namespace ShowCaseAPI.WebApi.Controllers
                 };
 
                 var oldShowcaseProducts = _showcaseProductRepository.Query().Where(x => !x.Deleted && x.ShowcaseId == vm.ShowcaseId).ToList();
-                oldShowcaseProducts.forEach(x => x.Deleted = true);
+                oldShowcaseProducts.ForEach(x => x.Deleted = true);
 
                 foreach (var product in vm.ProductIds)
                 {
-                    var exist = oldShowcaseProducts.FirstOrDefault(x => x.StoreProductId == product.Id);
+                    var exist = oldShowcaseProducts.FirstOrDefault(x => x.StoreProductId == product);
                     if (exist != null)
                     {
                         oldShowcaseProducts.Remove(exist);
@@ -71,7 +71,7 @@ namespace ShowCaseAPI.WebApi.Controllers
                     var created = await _showcaseProductRepository.Insert(new ShowcaseProduct
                     {
                         ShowcaseId = vm.ShowcaseId,
-                        ProductId = product.Id
+                        StoreProductId = product
                     });
 
                     if (created <= 0)

@@ -1,4 +1,7 @@
-﻿using ShowCaseAPI.WebApi.Helper;
+﻿using Microsoft.AspNetCore.Mvc;
+using ShowCaseAPI.Domain.Entities;
+using ShowCaseAPI.Repositories.Interface;
+using ShowCaseAPI.WebApi.Helper;
 using ShowCaseAPI.WebApi.Model.ShowcaseStyle;
 using ShowCaseAPI.WebApi.Model.Template;
 

@@ -170,7 +170,7 @@ namespace ShowCaseAPI.WebApi.Controllers
                     }
                 }
 
-                var showcaseProducts = await _showcaseProductRepository.Query().Where(x => !x.Deleted && x.ShowcaseId == vm.ShowcaseId).ToList();
+                var showcaseProducts = _showcaseProductRepository.Query().Where(x => !x.Deleted && x.ShowcaseId == showcaseId).ToList();
                 foreach (var product in showcaseProducts)
                 {
                     var removed = await _showcaseProductRepository.Delete(product.Id);
