@@ -2,7 +2,7 @@
 {
     public class PutShowcaseViewModel
     {
-        public Guid Id { get; set; }
+        public Guid ShowcaseId { get; set; }
         public string Name { get; set; }
     }
 }

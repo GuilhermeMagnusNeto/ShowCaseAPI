@@ -28,6 +28,9 @@ namespace ShowCaseAPI.Domain.Entities
         [Column("SKU")]
         public string SKU { get; set; }
 
+        [Column("DESCRIPTION")]
+        public string Description { get; set; }
+
         [Column("PRODUCT_PICTURE")]
         public string ProductPicture { get; set; }
     }
@@ -44,6 +47,7 @@ namespace ShowCaseAPI.Domain.Entities
             self.Property(x => x.Name).IsRequired();
             self.Property(x => x.Value).IsRequired(false);
             self.Property(x => x.SKU).IsRequired(false);
+            self.Property(x => x.Description).IsRequired(false);
             self.Property(x => x.ProductPicture).IsRequired(false);
 
             return self;

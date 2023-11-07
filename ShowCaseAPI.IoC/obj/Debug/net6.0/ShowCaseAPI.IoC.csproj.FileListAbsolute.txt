@@ -17,6 +17,14 @@ D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.IoC\obj\Debug\net6.0\ShowCaseAPI
 D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.IoC\obj\Debug\net6.0\refint\ShowCaseAPI.IoC.dll
 D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.IoC\obj\Debug\net6.0\ShowCaseAPI.IoC.pdb
 D:\Programacao\Projetos\ShowCaseAPI\ShowCaseAPI.IoC\obj\Debug\net6.0\ref\ShowCaseAPI.IoC.dll
+C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.IoC\obj\Debug\net6.0\ShowCaseAPI.IoC.csproj.AssemblyReference.cache
+C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.IoC\obj\Debug\net6.0\ShowCaseAPI.IoC.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.IoC\obj\Debug\net6.0\ShowCaseAPI.IoC.AssemblyInfoInputs.cache
+C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.IoC\obj\Debug\net6.0\ShowCaseAPI.IoC.AssemblyInfo.cs
+C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.IoC\obj\Debug\net6.0\ShowCaseAPI.IoC.csproj.CoreCompileInputs.cache
+C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.IoC\obj\Debug\net6.0\ShowCaseAPI.IoC.dll
+C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.IoC\obj\Debug\net6.0\refint\ShowCaseAPI.IoC.dll
+C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.IoC\obj\Debug\net6.0\ShowCaseAPI.IoC.pdb
 C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.IoC\bin\Debug\net6.0\ShowCaseAPI.IoC.deps.json
 C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.IoC\bin\Debug\net6.0\ShowCaseAPI.IoC.dll
 C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.IoC\bin\Debug\net6.0\ShowCaseAPI.IoC.pdb
@@ -26,13 +34,5 @@ C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2
 C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.IoC\bin\Debug\net6.0\ShowCaseAPI.Identity.pdb
 C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.IoC\bin\Debug\net6.0\ShowCaseAPI.Repositories.pdb
 C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.IoC\bin\Debug\net6.0\ShowCaseAPI.Domain.pdb
-C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.IoC\obj\Debug\net6.0\ShowCaseAPI.IoC.csproj.AssemblyReference.cache
-C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.IoC\obj\Debug\net6.0\ShowCaseAPI.IoC.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.IoC\obj\Debug\net6.0\ShowCaseAPI.IoC.AssemblyInfoInputs.cache
-C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.IoC\obj\Debug\net6.0\ShowCaseAPI.IoC.AssemblyInfo.cs
-C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.IoC\obj\Debug\net6.0\ShowCaseAPI.IoC.csproj.CoreCompileInputs.cache
 C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.IoC\obj\Debug\net6.0\ShowCaseAPI.IoC.csproj.CopyComplete
-C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.IoC\obj\Debug\net6.0\ShowCaseAPI.IoC.dll
-C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.IoC\obj\Debug\net6.0\refint\ShowCaseAPI.IoC.dll
-C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.IoC\obj\Debug\net6.0\ShowCaseAPI.IoC.pdb
 C:\Users\adria\Desktop\Arquivos note antigo\Documents\Documentos\Adriana\ULBRA\2023_2\Clone_ShowCaseAPI\ShowCaseAPI\ShowCaseAPI.IoC\obj\Debug\net6.0\ref\ShowCaseAPI.IoC.dll
