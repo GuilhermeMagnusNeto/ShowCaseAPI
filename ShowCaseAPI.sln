@@ -22,12 +22,15 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShowCaseAPI.Identity", "ShowCaseAPI.Identity\ShowCaseAPI.Identity.csproj", "{7E2785D6-7722-445D-9F7B-5AFBD7C7D5B0}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShowCaseAPI.WebApi", "ShowCaseAPI.WebApi\ShowCaseAPI.WebApi.csproj", "{67CD238A-647E-4462-88F8-352678CA3CEA}"
+	ProjectSection(ProjectDependencies) = postProject
+		{55EA87CA-6EEE-4279-A395-88AA42ABBACD} = {55EA87CA-6EEE-4279-A395-88AA42ABBACD}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShowCaseAPI.Repositories", "ShowCaseAPI.Repositories\ShowCaseAPI.Repositories.csproj", "{EA399227-950B-4B59-B8AA-DF731B1EFA75}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IoC", "IoC", "{DA0F4489-96DA-4673-884B-411DC86AB6C8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShowCaseAPI.IoC", "ShowCaseAPI.IoC\ShowCaseAPI.IoC.csproj", "{70B38C0A-235A-4F27-888D-8F02662081BF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShowCaseAPI.IoC", "ShowCaseAPI.IoC\ShowCaseAPI.IoC.csproj", "{70B38C0A-235A-4F27-888D-8F02662081BF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
