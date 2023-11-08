@@ -8,5 +8,7 @@
         public string BackgroundColorCode { get; set; }
         public bool ShowProductValue { get; set; }
         public bool ShowStoreLogo { get; set; }
+        public string RedirectLink { get; set; }
+        
     }
 }

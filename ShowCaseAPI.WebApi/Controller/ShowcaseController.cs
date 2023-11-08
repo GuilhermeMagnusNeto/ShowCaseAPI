@@ -45,7 +45,7 @@ namespace ShowCaseAPI.WebApi.Controllers
                 return ResponseHelper.Success(new ShowcaseViewModel
                 {
                     Id = result.Id,
-                    UniqueLink = uniqueLink,
+                    UniqueLink = uniqueLink.Replace("\\", "/"),
                     Name = result.Name,
                     StoreId = result.StoreId
                 });
@@ -71,7 +71,7 @@ namespace ShowCaseAPI.WebApi.Controllers
                 return ResponseHelper.Success(new ShowcaseViewModel
                 {
                     Id = result.Id,
-                    UniqueLink = uniqueLink,
+                    UniqueLink = uniqueLink.Replace("\\", "/"),
                     Name = result.Name,
                     StoreId = result.StoreId
                 });
@@ -90,7 +90,7 @@ namespace ShowCaseAPI.WebApi.Controllers
                 var result = (await _showcaseRepository.GetShowcasesByStoreId(storeId)).Select(x => new ShowcaseViewModel
                 {
                     Id = x.Id,
-                    UniqueLink = Path.Combine(_configuration.GetSection("GlobalShowcase:Url").Value, x.ExclusiveCode),
+                    UniqueLink = Path.Combine(_configuration.GetSection("GlobalShowcase:Url").Value, x.ExclusiveCode).Replace("\\", "/"),
                     Name = x.Name,
                     StoreId = x.StoreId
                 }).ToList();
@@ -111,7 +111,7 @@ namespace ShowCaseAPI.WebApi.Controllers
                 if (store == null)
                 {
                     return ResponseHelper.BadRequest("Loja não encontrada");
-                }                
+                }
 
                 var existeName = _showcaseRepository.Query().Where(x => !x.Deleted && x.StoreId == store.Id).Any(x => x.Name.ToUpper() == vm.Name.ToUpper());
                 if (existeName)
@@ -133,7 +133,7 @@ namespace ShowCaseAPI.WebApi.Controllers
                     return ResponseHelper.Success(new ShowcaseViewModel
                     {
                         Id = showcase.Id,
-                        UniqueLink = Path.Combine(_configuration.GetSection("GlobalShowcase:Url").Value, showcase.ExclusiveCode),
+                        UniqueLink = Path.Combine(_configuration.GetSection("GlobalShowcase:Url").Value, showcase.ExclusiveCode).Replace("\\", "/"),
                         Name = showcase.Name,
                         StoreId = showcase.StoreId
                     });
