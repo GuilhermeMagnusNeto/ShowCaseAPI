@@ -19,12 +19,14 @@ namespace ShowCaseAPI.WebApi.Controllers
         private readonly IStoreRepository _storeRepository;
         private readonly IShowcaseStyleRepository _showcaseStyleRepository;
         private readonly IShowcaseProductRepository _showcaseProductRepository;
-        public ShowcaseController(IShowcaseRepository showcaseRepository, IStoreRepository storeRepository, IShowcaseStyleRepository showcaseStyleRepository, IShowcaseProductRepository showcaseProductRepository)
+        private readonly IConfiguration _configuration;
+        public ShowcaseController(IShowcaseRepository showcaseRepository, IStoreRepository storeRepository, IShowcaseStyleRepository showcaseStyleRepository, IShowcaseProductRepository showcaseProductRepository, IConfiguration configuration)
         {
             _showcaseRepository = showcaseRepository;
             _storeRepository = storeRepository;
             _showcaseStyleRepository = showcaseStyleRepository;
             _showcaseProductRepository = showcaseProductRepository;
+            _configuration = configuration;
         }
 
 
@@ -36,13 +38,40 @@ namespace ShowCaseAPI.WebApi.Controllers
                 var result = await _showcaseRepository.GetById(showcaseId);
                 if (result == null)
                 {
-                    return ResponseHelper.BadRequest("Nenhum produto encontrado!");
+                    return ResponseHelper.BadRequest("Nenhuma vitrine encontrada!");
                 }
 
+                var uniqueLink = Path.Combine(_configuration.GetSection("GlobalShowcase:Url").Value, result.ExclusiveCode);
                 return ResponseHelper.Success(new ShowcaseViewModel
                 {
                     Id = result.Id,
-                    ExclusiveCode = result.ExclusiveCode,
+                    UniqueLink = uniqueLink,
+                    Name = result.Name,
+                    StoreId = result.StoreId
+                });
+            }
+            catch (Exception e)
+            {
+                return ResponseHelper.InternalServerError(e.Message);
+            }
+        }
+
+        [HttpGet("GetByExclusiveCode/{code}")]
+        public async Task<IActionResult> GetByIdAsync(string code)
+        {
+            try
+            {
+                var result = _showcaseRepository.Query().FirstOrDefault(x => x.ExclusiveCode == code);
+                if (result == null)
+                {
+                    return ResponseHelper.BadRequest("Nenhum produto encontrado!");
+                }
+
+                var uniqueLink = Path.Combine(_configuration.GetSection("GlobalShowcase:Url").Value, result.ExclusiveCode);
+                return ResponseHelper.Success(new ShowcaseViewModel
+                {
+                    Id = result.Id,
+                    UniqueLink = uniqueLink,
                     Name = result.Name,
                     StoreId = result.StoreId
                 });
@@ -61,7 +90,7 @@ namespace ShowCaseAPI.WebApi.Controllers
                 var result = (await _showcaseRepository.GetShowcasesByStoreId(storeId)).Select(x => new ShowcaseViewModel
                 {
                     Id = x.Id,
-                    ExclusiveCode = x.ExclusiveCode,
+                    UniqueLink = Path.Combine(_configuration.GetSection("GlobalShowcase:Url").Value, x.ExclusiveCode),
                     Name = x.Name,
                     StoreId = x.StoreId
                 }).ToList();
@@ -104,7 +133,7 @@ namespace ShowCaseAPI.WebApi.Controllers
                     return ResponseHelper.Success(new ShowcaseViewModel
                     {
                         Id = showcase.Id,
-                        ExclusiveCode = showcase.ExclusiveCode,
+                        UniqueLink = Path.Combine(_configuration.GetSection("GlobalShowcase:Url").Value, showcase.ExclusiveCode),
                         Name = showcase.Name,
                         StoreId = showcase.StoreId
                     });

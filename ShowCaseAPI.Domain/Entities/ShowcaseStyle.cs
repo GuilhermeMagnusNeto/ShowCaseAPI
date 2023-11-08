@@ -31,6 +31,9 @@ namespace ShowCaseAPI.Domain.Entities
 
         [Column("SHOW_STORE_LOGO")]
         public bool ShowStoreLogo { get; set; }
+
+        [Column("REDIRECT_LINK")]
+        public string RedirectLink { get; set; }
         #endregion //STYLE
     }
 
@@ -49,6 +52,7 @@ namespace ShowCaseAPI.Domain.Entities
             self.Property(x => x.BackgroundColorCode).IsRequired(false);
             self.Property(x => x.ShowProductValue).IsRequired();
             self.Property(x => x.ShowStoreLogo).IsRequired();
+            self.Property(x => x.RedirectLink).IsRequired(false);
 
             return self;
         }

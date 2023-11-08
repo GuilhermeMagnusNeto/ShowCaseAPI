@@ -46,7 +46,8 @@ namespace ShowCaseAPI.WebApi.Controllers
                     TemplateName = template.Name,
                     BackgroundColorCode = result.BackgroundColorCode,
                     ShowProductValue = result.ShowProductValue,
-                    ShowStoreLogo = result.ShowStoreLogo
+                    ShowStoreLogo = result.ShowStoreLogo,
+                    RedirectLink = result.RedirectLink
                 });
             }
             catch (Exception e)
@@ -108,7 +109,8 @@ namespace ShowCaseAPI.WebApi.Controllers
                         TemplateName = template.Name,
                         BackgroundColorCode = style.BackgroundColorCode,
                         ShowProductValue = style.ShowProductValue,
-                        ShowStoreLogo = style.ShowStoreLogo
+                        ShowStoreLogo = style.ShowStoreLogo,
+                        RedirectLink = style.RedirectLink
                     });
                 }
                 return ResponseHelper.BadRequest();
@@ -140,6 +142,7 @@ namespace ShowCaseAPI.WebApi.Controllers
                 style.BackgroundColorCode = vm.BackgroundColorCode;
                 style.ShowProductValue = vm.ShowProductValue;
                 style.ShowStoreLogo = vm.ShowStoreLogo;
+                style.RedirectLink = vm.RedirectLink;
 
                 var result = await _showcaseStyleRepository.Update(style);
                 if (result > 0)
