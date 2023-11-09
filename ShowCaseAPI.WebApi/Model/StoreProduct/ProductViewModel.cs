@@ -8,5 +8,6 @@
         public double? Value { get; set; }
         public string? SKU { get; set; }
         public string? Description { get; set; }
+        public string? UrlProductPicture { get; set; }
     }
 }

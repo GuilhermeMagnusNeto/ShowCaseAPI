@@ -9,6 +9,7 @@ using ShowCaseAPI.IoC;
 using ShowCaseAPI.Repositories.Interface;
 using ShowCaseAPI.Repositories.Repository;
 using System.Text;
+using ShowCaseAPI.WebApi.Helper;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -56,6 +57,13 @@ builder.Services.AddSwaggerGen(c =>
 
 // Data - Repository
 NativeInjectorBootStrapper.RegisterServices(builder.Services);
+
+//Configure BLOB
+var blobSection = builder.Configuration.GetSection("AccessBlob");
+builder.services.Configure<BLOBSetup>(blobSection);
+var blobSetup = blobSection.Get<BLOBSetup>();
+BlobInstance.AccessKey = blobSetup.AccessKey;
+BlobInstance.AccessName = blobSetup.AccessName;
 
 builder.Services.AddHttpContextAccessor();
 

@@ -16,10 +16,13 @@ namespace ShowCaseAPI.WebApi.Controllers
     {
         private readonly IStoreRepository _storeRepository;
         private readonly IStoreProductRepository _storeProductRepository;
-        public StoreProductController(IStoreProductRepository storeProductRepository, IStoreRepository storeRepository)
+        private readonly IConfiguration _config;
+
+        public StoreProductController(IStoreProductRepository storeProductRepository, IStoreRepository storeRepository, IConfiguration config)
         {
             _storeProductRepository = storeProductRepository;
             _storeRepository = storeRepository;
+            _config = config;
         }
 
 
@@ -41,7 +44,8 @@ namespace ShowCaseAPI.WebApi.Controllers
                     Name = result.Name,
                     Value = result.Value,
                     SKU = result.SKU,
-                    Description = result.Description
+                    Description = result.Description,
+                    UrlProductPicture = _config.GetValue<string>("BlobStorageUrl") + result.ProductPicture
                 });
             }
             catch (Exception e)
@@ -62,7 +66,8 @@ namespace ShowCaseAPI.WebApi.Controllers
                     Name = x.Name,
                     Value = x.Value,
                     SKU = x.SKU,
-                    Description = x.Description
+                    Description = x.Description,
+                    UrlProductPicture = _config.GetValue<string>("BlobStorageUrl") + x.ProductPicture
                 }).ToList();
                 return ResponseHelper.Success(result);
             }
@@ -73,7 +78,7 @@ namespace ShowCaseAPI.WebApi.Controllers
         }
 
         [HttpPost("CreateProduct")]
-        public async Task<IActionResult> PostAsync([FromBody] PostProductViewModel vm)
+        public async Task<IActionResult> PostAsync([FromForm] PostProductViewModel vm)
         {
             try
             {
@@ -105,7 +110,40 @@ namespace ShowCaseAPI.WebApi.Controllers
                 var result = await _storeProductRepository.Insert(product);
                 if (result > 0)
                 {
-                    return ResponseHelper.Success();
+                    if (vm.ProductPicture != null)
+                    {
+                        //Blob Storage authentication
+                        StorageCredentials credencials = new StorageCredentials(BlobInstance.AccessName, BlobInstance.AccessKey);
+                        CloudStorageAccount account = new CloudStorageAccount(credencials, useHttps: true);
+                        CloudBlobClient client = account.CreateCloudBlobClient();
+                        CloudBlobContainer container = client.GetContainerReference("globalshowcase");
+
+                        //Upload the file to Blob Storage                            
+                        using (var stream = vm.ProductPicture.OpenReadStream())
+                        {
+                            var fileEx = vm.ProductPicture.FileName.Substring(vm.ProductPicture.FileName.Length - 5).Split(".");
+                            string fileName = Guid.NewGuid().ToString() + "." + fileEx[1];
+                            string fileSend = Path.Combine(product.Id, product.StoreId, fileName);
+
+                            //Upload the file to Blob Storage   
+                            CloudBlockBlob cblob = container.GetBlockBlobReference(fileSend);
+                            var result = container.ExistsAsync().Result;
+                            if (!result)
+                            {
+                                return BadRequest("Container not found!");
+                            }
+                            cblob.UploadFromStreamAsync(stream).Wait();
+
+                            product.ProductPicture = fileSend.Replace("\\", "/");
+                            var result = await _storeProductRepository.Update(product);
+                            if (result > 0)
+                            {
+                                return ResponseHelper.Success();
+                            }
+                        }
+
+                        return ResponseHelper.Success();
+                    }
                 }
                 return ResponseHelper.BadRequest();
             }
@@ -116,7 +154,7 @@ namespace ShowCaseAPI.WebApi.Controllers
         }
 
         [HttpPut("EditProduct")]
-        public async Task<IActionResult> PutAsync([FromBody] PutProductViewModel vm)
+        public async Task<IActionResult> PutAsync([FromForm] PutProductViewModel vm)
         {
             try
             {
@@ -140,6 +178,32 @@ namespace ShowCaseAPI.WebApi.Controllers
                 product.SKU = vm.SKU;
                 product.Description = vm.Description;
                 product.Value = vm.Value;
+                if (vm.ProductPicture != null)
+                {
+                    //Blob Storage authentication
+                    StorageCredentials credencials = new StorageCredentials(BlobInstance.AccessName, BlobInstance.AccessKey);
+                    CloudStorageAccount account = new CloudStorageAccount(credencials, useHttps: true);
+                    CloudBlobClient client = account.CreateCloudBlobClient();
+                    CloudBlobContainer container = client.GetContainerReference("globalshowcase");
+
+                    //Upload the file to Blob Storage                            
+                    using (var stream = vm.ProductPicture.OpenReadStream())
+                    {
+                        var fileEx = vm.ProductPicture.FileName.Substring(vm.ProductPicture.FileName.Length - 5).Split(".");
+                        string fileName = Guid.NewGuid().ToString() + "." + fileEx[1];
+                        string fileSend = Path.Combine(product.Id, product.StoreId, fileName);
+
+                        //Upload the file to Blob Storage   
+                        CloudBlockBlob cblob = container.GetBlockBlobReference(fileSend);
+                        var result = container.ExistsAsync().Result;
+                        if (!result)
+                        {
+                            return BadRequest("Container not found!");
+                        }
+                        cblob.UploadFromStreamAsync(stream).Wait();
+                        product.ProductPicture = fileSend.Replace("\\", "/");
+                    }
+                }
 
                 var result = await _storeProductRepository.Update(product);
                 if (result > 0)
