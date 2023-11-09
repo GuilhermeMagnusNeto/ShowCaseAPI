@@ -1,5 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Auth;
+using Microsoft.WindowsAzure.Storage.Blob;
 using ShowCaseAPI.Domain.Entities;
 using ShowCaseAPI.Repositories.Interface;
 using ShowCaseAPI.WebApi.Helper;
@@ -123,20 +126,20 @@ namespace ShowCaseAPI.WebApi.Controllers
                         {
                             var fileEx = vm.ProductPicture.FileName.Substring(vm.ProductPicture.FileName.Length - 5).Split(".");
                             string fileName = Guid.NewGuid().ToString() + "." + fileEx[1];
-                            string fileSend = Path.Combine(product.Id, product.StoreId, fileName);
+                            string fileSend = Path.Combine(product.Id.ToString(), product.StoreId.ToString(), fileName);
 
                             //Upload the file to Blob Storage   
                             CloudBlockBlob cblob = container.GetBlockBlobReference(fileSend);
-                            var result = container.ExistsAsync().Result;
-                            if (!result)
+                            var response = container.ExistsAsync().Result;
+                            if (!response)
                             {
                                 return BadRequest("Container not found!");
                             }
                             cblob.UploadFromStreamAsync(stream).Wait();
 
                             product.ProductPicture = fileSend.Replace("\\", "/");
-                            var result = await _storeProductRepository.Update(product);
-                            if (result > 0)
+                            var create = await _storeProductRepository.Update(product);
+                            if (create > 0)
                             {
                                 return ResponseHelper.Success();
                             }
@@ -191,12 +194,12 @@ namespace ShowCaseAPI.WebApi.Controllers
                     {
                         var fileEx = vm.ProductPicture.FileName.Substring(vm.ProductPicture.FileName.Length - 5).Split(".");
                         string fileName = Guid.NewGuid().ToString() + "." + fileEx[1];
-                        string fileSend = Path.Combine(product.Id, product.StoreId, fileName);
+                        string fileSend = Path.Combine(product.Id.ToString(), product.StoreId.ToString(), fileName);
 
                         //Upload the file to Blob Storage   
                         CloudBlockBlob cblob = container.GetBlockBlobReference(fileSend);
-                        var result = container.ExistsAsync().Result;
-                        if (!result)
+                        var response = container.ExistsAsync().Result;
+                        if (!response)
                         {
                             return BadRequest("Container not found!");
                         }
