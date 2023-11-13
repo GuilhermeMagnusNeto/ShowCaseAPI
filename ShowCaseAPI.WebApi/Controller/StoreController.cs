@@ -41,7 +41,7 @@ namespace ShowCaseAPI.WebApi.Controllers
                 {
                     Id = result.Id,
                     Name = result.Name,
-                    StoreLogo = result.StoreLogo
+                    UrlStoreLogo = result.StoreLogo != null ? _config.GetValue<string>("BlobStorageUrl") + result.StoreLogo : null
                 });
             }
             catch (Exception e)
@@ -59,7 +59,7 @@ namespace ShowCaseAPI.WebApi.Controllers
                 {
                     Id = x.Id,
                     Name = x.Name,
-                    StoreLogo = x.StoreLogo
+                    UrlStoreLogo = x.StoreLogo != null ? _config.GetValue<string>("BlobStorageUrl") + x.StoreLogo : null
                 }).ToList();
 
                 return ResponseHelper.Success(result);
@@ -86,19 +86,53 @@ namespace ShowCaseAPI.WebApi.Controllers
                     return ResponseHelper.BadRequest("Você já tem uma loja com esse nome!");
                 }
 
-
-                //TODO:  StoreLogo = gerar url
-
-
                 var store = new Store()
                 {
                     Name = vm.Name,
-                    //StoreLogo = 
                     UserId = user.Id
                 };
                 var result = await _storeRepository.Insert(store);
                 if (result > 0)
                 {
+                    if (vm.StoreLogo != null)
+                    {
+                        //Blob Storage authentication
+                        StorageCredentials credencials = new StorageCredentials(BlobInstance.AccessName, BlobInstance.AccessKey);
+                        CloudStorageAccount account = new CloudStorageAccount(credencials, useHttps: true);
+                        CloudBlobClient client = account.CreateCloudBlobClient();
+                        CloudBlobContainer container = client.GetContainerReference("globalshowcase");
+
+                        //Upload the file to Blob Storage                            
+                        using (var stream = vm.StoreLogo.OpenReadStream())
+                        {
+                            var fileEx = vm.StoreLogo.FileName.Substring(vm.StoreLogo.FileName.Length - 5).Split(".");
+                            string fileName = Guid.NewGuid().ToString() + "." + fileEx[1];
+                            string fileSend = Path.Combine($"Store-{store.Id.ToString()}", $"Logo-{fileName}");
+
+                            //Upload the file to Blob Storage   
+                            CloudBlockBlob cblob = container.GetBlockBlobReference(fileSend);
+                            var response = container.ExistsAsync().Result;
+                            if (!response)
+                            {
+                                return BadRequest("Container not found!");
+                            }
+                            cblob.UploadFromStreamAsync(stream).Wait();
+
+                            store.StoreLogo = fileSend.Replace("\\", "/");
+                            var create = await _storeRepository.Update(product);
+                            if (create > 0)
+                            {
+                                return ResponseHelper.Success(new StoreViewModel
+                                {
+                                    Id = store.Id,
+                                    Name = store.Name,
+                                    StoreLogo = store.StoreLogo
+                                });
+                            }
+                            return ResponseHelper.BadRequest();
+                        }
+                    }
+
                     return ResponseHelper.Success(new StoreViewModel
                     {
                         Id = store.Id,
@@ -134,18 +168,55 @@ namespace ShowCaseAPI.WebApi.Controllers
                 {
                     return ResponseHelper.BadRequest("Você já tem uma loja com esse nome!");
                 }
-
-
-                //TODO:  StoreLogo = gerar url
-
-
                 store.Name = vm.Name;
-                //store.StoreLogo =
 
                 var result = await _storeRepository.Update(store);
                 if (result > 0)
                 {
-                    return ResponseHelper.Success();
+                    if (vm.StoreLogo != null)
+                    {
+                        //Blob Storage authentication
+                        StorageCredentials credencials = new StorageCredentials(BlobInstance.AccessName, BlobInstance.AccessKey);
+                        CloudStorageAccount account = new CloudStorageAccount(credencials, useHttps: true);
+                        CloudBlobClient client = account.CreateCloudBlobClient();
+                        CloudBlobContainer container = client.GetContainerReference("globalshowcase");
+
+                        //Upload the file to Blob Storage                            
+                        using (var stream = vm.StoreLogo.OpenReadStream())
+                        {
+                            var fileEx = vm.StoreLogo.FileName.Substring(vm.StoreLogo.FileName.Length - 5).Split(".");
+                            string fileName = Guid.NewGuid().ToString() + "." + fileEx[1];
+                            string fileSend = Path.Combine($"Store-{store.Id.ToString()}", $"Logo-{fileName}");
+
+                            //Upload the file to Blob Storage   
+                            CloudBlockBlob cblob = container.GetBlockBlobReference(fileSend);
+                            var response = container.ExistsAsync().Result;
+                            if (!response)
+                            {
+                                return BadRequest("Container not found!");
+                            }
+                            cblob.UploadFromStreamAsync(stream).Wait();
+
+                            store.StoreLogo = fileSend.Replace("\\", "/");
+                            var create = await _storeRepository.Update(product);
+                            if (create > 0)
+                            {
+                                return ResponseHelper.Success(new StoreViewModel
+                                {
+                                    Id = store.Id,
+                                    Name = store.Name,
+                                    StoreLogo = store.StoreLogo
+                                });
+                            }
+                            return ResponseHelper.BadRequest();
+                        }
+                    }
+                    return ResponseHelper.Success(new StoreViewModel
+                    {
+                        Id = store.Id,
+                        Name = store.Name,
+                        StoreLogo = store.StoreLogo
+                    });
                 }
                 return ResponseHelper.BadRequest();
             }

@@ -4,6 +4,6 @@
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
-        public string? StoreLogo { get; set; }
+        public string? UrlStoreLogo { get; set; }
     }
 }

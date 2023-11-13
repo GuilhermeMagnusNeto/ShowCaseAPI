@@ -2,7 +2,7 @@
 {
     public class PutStoreViewModel
     {
-        public Guid storeId { get; set; }
+        public Guid StoreId { get; set; }
         public string Name { get; set; }
         public IFormFile? StoreLogo { get; set; }
     }

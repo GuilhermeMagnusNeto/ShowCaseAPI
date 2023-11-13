@@ -48,7 +48,7 @@ namespace ShowCaseAPI.WebApi.Controllers
                     Value = result.Value,
                     SKU = result.SKU,
                     Description = result.Description,
-                    UrlProductPicture = _config.GetValue<string>("BlobStorageUrl") + result.ProductPicture
+                    UrlProductPicture = result.ProductPicture != null? _config.GetValue<string>("BlobStorageUrl") + result.ProductPicture : null
                 });
             }
             catch (Exception e)
@@ -70,7 +70,7 @@ namespace ShowCaseAPI.WebApi.Controllers
                     Value = x.Value,
                     SKU = x.SKU,
                     Description = x.Description,
-                    UrlProductPicture = _config.GetValue<string>("BlobStorageUrl") + x.ProductPicture
+                    UrlProductPicture = x.ProductPicture != null ? _config.GetValue<string>("BlobStorageUrl") + x.ProductPicture : null
                 }).ToList();
                 return ResponseHelper.Success(result);
             }
@@ -125,8 +125,8 @@ namespace ShowCaseAPI.WebApi.Controllers
                         using (var stream = vm.ProductPicture.OpenReadStream())
                         {
                             var fileEx = vm.ProductPicture.FileName.Substring(vm.ProductPicture.FileName.Length - 5).Split(".");
-                            string fileName = Guid.NewGuid().ToString() + "." + fileEx[1];
-                            string fileSend = Path.Combine(product.Id.ToString(), product.StoreId.ToString(), fileName);
+                            string fileName = product.Id.ToString() + "." + fileEx[1];
+                            string fileSend = Path.Combine($"Store-{product.StoreId.ToString()}", "Products", $"Product-{fileName}");
 
                             //Upload the file to Blob Storage   
                             CloudBlockBlob cblob = container.GetBlockBlobReference(fileSend);
@@ -193,8 +193,8 @@ namespace ShowCaseAPI.WebApi.Controllers
                     using (var stream = vm.ProductPicture.OpenReadStream())
                     {
                         var fileEx = vm.ProductPicture.FileName.Substring(vm.ProductPicture.FileName.Length - 5).Split(".");
-                        string fileName = Guid.NewGuid().ToString() + "." + fileEx[1];
-                        string fileSend = Path.Combine(product.Id.ToString(), product.StoreId.ToString(), fileName);
+                        string fileName = product.Id.ToString() + "." + fileEx[1];
+                        string fileSend = Path.Combine($"Store-{product.StoreId.ToString()}", "Products", $"Product-{fileName}");
 
                         //Upload the file to Blob Storage   
                         CloudBlockBlob cblob = container.GetBlockBlobReference(fileSend);
