@@ -1,6 +1,9 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.VisualBasic;
+using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Auth;
+using Microsoft.WindowsAzure.Storage.Blob;
 using ShowCaseAPI.Domain.Entities;
 using ShowCaseAPI.Repositories.Interface;
 using ShowCaseAPI.Repositories.Repository;
@@ -19,11 +22,13 @@ namespace ShowCaseAPI.WebApi.Controllers
         private readonly IStoreRepository _storeRepository;
         private readonly IUserRepository _userRepository;
         private readonly IStoreProductRepository _storeProductRepository;
-        public StoreController(IStoreRepository storeRepository, IUserRepository userRepository, IStoreProductRepository storeProductRepository)
+        private readonly IConfiguration _config;
+        public StoreController(IStoreRepository storeRepository, IUserRepository userRepository, IStoreProductRepository storeProductRepository, IConfiguration config)
         {
             _storeRepository = storeRepository;
             _userRepository = userRepository;
             _storeProductRepository = storeProductRepository;
+            _config = config;
         }
 
 
@@ -71,7 +76,7 @@ namespace ShowCaseAPI.WebApi.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> PostAsync([FromBody] PostStoreViewModel vm)
+        public async Task<IActionResult> PostAsync([FromForm] PostStoreViewModel vm)
         {
             try
             {
@@ -119,14 +124,14 @@ namespace ShowCaseAPI.WebApi.Controllers
                             cblob.UploadFromStreamAsync(stream).Wait();
 
                             store.StoreLogo = fileSend.Replace("\\", "/");
-                            var create = await _storeRepository.Update(product);
+                            var create = await _storeRepository.Update(store);
                             if (create > 0)
                             {
                                 return ResponseHelper.Success(new StoreViewModel
                                 {
                                     Id = store.Id,
                                     Name = store.Name,
-                                    StoreLogo = store.StoreLogo
+                                    UrlStoreLogo = store.StoreLogo != null ? _config.GetValue<string>("BlobStorageUrl") + store.StoreLogo : null
                                 });
                             }
                             return ResponseHelper.BadRequest();
@@ -137,7 +142,7 @@ namespace ShowCaseAPI.WebApi.Controllers
                     {
                         Id = store.Id,
                         Name = store.Name,
-                        StoreLogo = store.StoreLogo
+                        UrlStoreLogo = store.StoreLogo != null ? _config.GetValue<string>("BlobStorageUrl") + store.StoreLogo : null
                     });
                 }
                 return ResponseHelper.BadRequest();
@@ -149,11 +154,11 @@ namespace ShowCaseAPI.WebApi.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> PutAsync([FromBody] PutStoreViewModel vm)
+        public async Task<IActionResult> PutAsync([FromForm] PutStoreViewModel vm)
         {
             try
             {
-                var store = await _storeRepository.GetById(vm.storeId);
+                var store = await _storeRepository.GetById(vm.StoreId);
                 if (store == null)
                 {
                     return ResponseHelper.BadRequest("Nenhuma loja encontrado!");
@@ -198,14 +203,14 @@ namespace ShowCaseAPI.WebApi.Controllers
                             cblob.UploadFromStreamAsync(stream).Wait();
 
                             store.StoreLogo = fileSend.Replace("\\", "/");
-                            var create = await _storeRepository.Update(product);
+                            var create = await _storeRepository.Update(store);
                             if (create > 0)
                             {
                                 return ResponseHelper.Success(new StoreViewModel
                                 {
                                     Id = store.Id,
                                     Name = store.Name,
-                                    StoreLogo = store.StoreLogo
+                                    UrlStoreLogo = store.StoreLogo != null ? _config.GetValue<string>("BlobStorageUrl") + store.StoreLogo : null
                                 });
                             }
                             return ResponseHelper.BadRequest();
@@ -215,7 +220,7 @@ namespace ShowCaseAPI.WebApi.Controllers
                     {
                         Id = store.Id,
                         Name = store.Name,
-                        StoreLogo = store.StoreLogo
+                        UrlStoreLogo = store.StoreLogo != null ? _config.GetValue<string>("BlobStorageUrl") + store.StoreLogo : null
                     });
                 }
                 return ResponseHelper.BadRequest();

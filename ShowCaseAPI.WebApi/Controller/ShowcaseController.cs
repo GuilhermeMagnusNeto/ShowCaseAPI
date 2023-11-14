@@ -202,7 +202,7 @@ namespace ShowCaseAPI.WebApi.Controllers
                 var showcaseProducts = _showcaseProductRepository.Query().Where(x => !x.Deleted && x.ShowcaseId == showcaseId).ToList();
                 foreach (var showcaseProduct in showcaseProducts)
                 {
-                    var removed = await _showcaseProductRepository.Delete(showcaseProduct);
+                    var removed = await _showcaseProductRepository.Delete(showcaseProduct.Id);
                     if (removed <= 0)
                     {
                         return ResponseHelper.BadRequest("Ocorreu um erro durante a exclusão dos produtos antigos.");
