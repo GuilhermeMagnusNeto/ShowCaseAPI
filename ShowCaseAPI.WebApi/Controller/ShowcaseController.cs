@@ -193,27 +193,18 @@ namespace ShowCaseAPI.WebApi.Controllers
                 if (style != null)
                 {
                     var resultStyle = await _showcaseStyleRepository.Delete(style.Id);
-                    if (resultStyle <= 0)
-                    {
-                        return ResponseHelper.BadRequest("Ocorreu um erro durante a exclusão do style da vitrine.");
-                    }
+                   
                 }
 
                 var showcaseProducts = _showcaseProductRepository.Query().Where(x => !x.Deleted && x.ShowcaseId == showcaseId).ToList();
                 foreach (var showcaseProduct in showcaseProducts)
                 {
                     var removed = await _showcaseProductRepository.Delete(showcaseProduct.Id);
-                    if (removed <= 0)
-                    {
-                        return ResponseHelper.BadRequest("Ocorreu um erro durante a exclusão dos produtos antigos.");
-                    }
+                   
                 }
 
                 var resultShowcase = await _showcaseRepository.Delete(showcaseId);
-                if (resultShowcase <= 0)
-                {
-                    return ResponseHelper.BadRequest("Ocorreu um erro durante a exclusão da vitrine.");
-                }
+                
 
                 return ResponseHelper.Success();
             }
